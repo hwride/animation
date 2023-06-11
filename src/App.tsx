@@ -1,12 +1,10 @@
-import viteLogo from '/vite.svg'
 import './App.css'
+import {SimpleCoordAnimate} from "./pages/SimpleCoordAnimate.tsx";
 
 function App() {
   return (
     <>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
+        <SimpleCoordAnimate />
     </>
   )
 }

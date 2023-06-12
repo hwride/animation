@@ -1,6 +1,6 @@
 import './App.css'
 import { SimpleCoordAnimate } from './pages/SimpleCoordAnimate.tsx'
-import { useState } from 'react'
+import { ButtonHTMLAttributes, ReactNode, useState } from 'react'
 
 function App() {
   const [selectedExample, setSelectedExample] = useState<string>()
@@ -9,12 +9,14 @@ function App() {
     <div className="flex h-full text-left">
       <ol className="border-black border-r list-none m-0 p-4">
         <li>
-          <button onClick={() => setSelectedExample(undefined)}>Empty</button>
+          <ListButton onClick={() => setSelectedExample(undefined)}>
+            Empty
+          </ListButton>
         </li>
         <li>
-          <button onClick={() => setSelectedExample('simpleCoordAnimate')}>
+          <ListButton onClick={() => setSelectedExample('simpleCoordAnimate')}>
             Simple coordinate animation
-          </button>
+          </ListButton>
         </li>
       </ol>
       <div className="flex-1">
@@ -26,6 +28,24 @@ function App() {
         )}
       </div>
     </div>
+  )
+}
+
+function ListButton({
+  children,
+  className,
+  ...rest
+}: ButtonHTMLAttributes<HTMLButtonElement> & { children: ReactNode }) {
+  return (
+    <button
+      className={
+        'border border-black px-1 rounded mb-1 hover:bg-gray-100' +
+        (className ?? '')
+      }
+      {...rest}
+    >
+      {children}
+    </button>
   )
 }
 

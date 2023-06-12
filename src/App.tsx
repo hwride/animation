@@ -11,7 +11,15 @@ function App() {
         <ListButton onClick={() => setSelectedExample(undefined)}>
           Empty
         </ListButton>
-        <h2 className="text-lg font-bold my-2">Framer Motion</h2>
+        <h2 className="text-lg font-bold my-2">
+          <a
+            className="underline text-blue-600 hover:text-blue-800 visited:text-purple-600"
+            href="https://www.framer.com/motion/"
+            target="_blank"
+          >
+            Framer Motion
+          </a>
+        </h2>
         <ol className="flex-1 list-none m-0">
           <li>
             <ListButton

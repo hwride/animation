@@ -5,8 +5,22 @@ import { EnterExit } from './pages/EnterExit.tsx'
 import { Button } from './components/Button.tsx'
 import { Link } from './components/Link.tsx'
 
+type ConfigEntry = { label: string; Component: React.FC }
+const componentConfig: ConfigEntry[] = [
+  {
+    label: 'Simple animation',
+    Component: SimpleAnimate,
+  },
+  {
+    label: 'Enter/exit',
+    Component: EnterExit,
+  },
+]
+
 function App() {
-  const [selectedExample, setSelectedExample] = useState<string>()
+  const [selectedExample, setSelectedExample] = useState<ConfigEntry>()
+  const ComponentToRender: React.FC =
+    selectedExample?.Component ?? EmptyComponent
 
   return (
     <div className="flex h-full text-left">
@@ -24,28 +38,19 @@ function App() {
           </Link>
         </h2>
         <ol className="flex-1 list-none m-0">
-          <li>
-            <ListButton
-              onClick={() => setSelectedExample('simpleCoordAnimate')}
-            >
-              Simple animation
-            </ListButton>
-          </li>
-          <li>
-            <ListButton onClick={() => setSelectedExample('enterExit')}>
-              Enter/exit
-            </ListButton>
-          </li>
+          {componentConfig.map((entry, i) => {
+            return (
+              <li key={i}>
+                <ListButton onClick={() => setSelectedExample(entry)}>
+                  {entry.label}
+                </ListButton>
+              </li>
+            )
+          })}
         </ol>
       </div>
       <div className="flex-1">
-        {selectedExample == null && (
-          <div className="flex items-center justify-center h-full">
-            Choose an example
-          </div>
-        )}
-        {selectedExample === 'simpleCoordAnimate' && <SimpleAnimate />}
-        {selectedExample === 'enterExit' && <EnterExit />}
+        <ComponentToRender />
       </div>
     </div>
   )
@@ -66,6 +71,13 @@ function ListButton({
     >
       {children}
     </Button>
+  )
+}
+function EmptyComponent() {
+  return (
+    <div className="flex items-center justify-center h-full">
+      Choose an example
+    </div>
   )
 }
 

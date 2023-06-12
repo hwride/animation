@@ -4,6 +4,7 @@ import { ButtonHTMLAttributes, ReactNode, useState } from 'react'
 import { EnterExit } from './pages/EnterExit.tsx'
 import { Button } from './components/Button.tsx'
 import { Link } from './components/Link.tsx'
+import { Keyframes } from './pages/Keyframes.tsx'
 
 type ConfigEntry = { label: string; Component: React.FC }
 const componentConfig: ConfigEntry[] = [
@@ -14,6 +15,10 @@ const componentConfig: ConfigEntry[] = [
   {
     label: 'Enter/exit',
     Component: EnterExit,
+  },
+  {
+    label: 'Keyframes',
+    Component: Keyframes,
   },
 ]
 

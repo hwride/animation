@@ -8,7 +8,7 @@ export function SimpleAnimate() {
   const animateColourVal = '#ff0000'
 
   return (
-    <div>
+    <div className="pt-2">
       <SubHeading>Coordinates</SubHeading>
       {/* Controls */}
       <div className="w-fit m-auto mt-2">

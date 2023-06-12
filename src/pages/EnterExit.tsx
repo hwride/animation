@@ -8,7 +8,7 @@ export function EnterExit() {
   const [visible, setVisible] = useState(true)
 
   return (
-    <div>
+    <div className="pt-2">
       <SubHeading>Enter/exit animations</SubHeading>
 
       <p className="max-w-[80ch] mx-auto">

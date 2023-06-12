@@ -19,7 +19,11 @@ function App() {
       </ol>
       <div className="flex-1">
         {selectedExample === 'simpleCoordAnimate' && <SimpleCoordAnimate />}
-        {selectedExample == null && 'Choose an example'}
+        {selectedExample == null && (
+          <div className="flex items-center justify-center h-full">
+            Choose an example
+          </div>
+        )}
       </div>
     </div>
   )

@@ -1,5 +1,5 @@
 import './App.css'
-import { SimpleCoordAnimate } from './pages/SimpleCoordAnimate.tsx'
+import { SimpleAnimate } from './pages/SimpleAnimate.tsx'
 import { ButtonHTMLAttributes, ReactNode, useState } from 'react'
 
 function App() {
@@ -25,13 +25,13 @@ function App() {
             <ListButton
               onClick={() => setSelectedExample('simpleCoordAnimate')}
             >
-              Simple coordinate animation
+              Simple animation
             </ListButton>
           </li>
         </ol>
       </div>
       <div className="flex-1">
-        {selectedExample === 'simpleCoordAnimate' && <SimpleCoordAnimate />}
+        {selectedExample === 'simpleCoordAnimate' && <SimpleAnimate />}
         {selectedExample == null && (
           <div className="flex items-center justify-center h-full">
             Choose an example

@@ -1,11 +1,17 @@
 import { motion } from 'framer-motion'
 import { useState } from 'react'
-export function SimpleCoordAnimate() {
+import { SubHeading } from '../components/SubHeading.tsx'
+
+export function SimpleAnimate() {
   const [coordVal, setCoordVal] = useState(50)
+  const initialColourVal = '#ffffff'
+  const animateColourVal = '#ff0000'
+
   return (
-    <>
-      <div className="w-fit m-auto pt-4">
-        {/* Controls */}
+    <div>
+      <SubHeading>Coordinates</SubHeading>
+      {/* Controls */}
+      <div className="w-fit m-auto mt-2">
         <label>
           <input
             className="mx-2"
@@ -20,8 +26,8 @@ export function SimpleCoordAnimate() {
         </label>
       </div>
 
-      <div className="w-min m-auto pt-4">
-        {/* Animated stuff */}
+      {/* Animated stuff */}
+      <div className="w-min m-auto mt-4 mb-4">
         <motion.div
           animate={{ x: -coordVal }}
           className="w-min border border-gray-100 my-4"
@@ -39,6 +45,25 @@ export function SimpleCoordAnimate() {
           </pre>
         </motion.div>
       </div>
-    </>
+
+      <SubHeading>Colour</SubHeading>
+      <div className="w-min m-auto">
+        <motion.div
+          className="p-4"
+          initial={{ backgroundColor: initialColourVal }}
+          animate={{ backgroundColor: animateColourVal }}
+        >
+          <pre>
+            &lt;motion.div
+            <br />
+            &nbsp;&nbsp;initial={'{{'} backgroundColor: {initialColourVal}{' '}
+            {'}}'}
+            <br />
+            &nbsp;&nbsp;animate={'{{'} backgroundColor: {animateColourVal}{' '}
+            {'}}'}&gt;
+          </pre>
+        </motion.div>
+      </div>
+    </div>
   )
 }

@@ -6,15 +6,8 @@ function App() {
   const [selectedExample, setSelectedExample] = useState<string>()
 
   return (
-    <div style={{ display: 'flex', height: '100%', textAlign: 'left' }}>
-      <ol
-        style={{
-          borderRight: '1px solid black',
-          listStyleType: 'none',
-          margin: 0,
-          padding: '1em',
-        }}
-      >
+    <div className="flex h-full text-left">
+      <ol className="border-black border-r list-none m-0 p-4">
         <li>
           <button onClick={() => setSelectedExample(undefined)}>Empty</button>
         </li>
@@ -24,7 +17,7 @@ function App() {
           </button>
         </li>
       </ol>
-      <div style={{ flex: '1' }}>
+      <div className="flex-1">
         {selectedExample === 'simpleCoordAnimate' && <SimpleCoordAnimate />}
         {selectedExample == null && 'Choose an example'}
       </div>

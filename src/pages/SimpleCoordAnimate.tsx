@@ -3,13 +3,7 @@ import { useState } from 'react'
 export function SimpleCoordAnimate() {
   const [coordVal, setCoordVal] = useState(50)
   return (
-    <div
-      style={{
-        width: 'min-content',
-        margin: 'auto',
-        paddingBlockStart: '1rem',
-      }}
-    >
+    <div className="w-min m-auto pt-4">
       <label>
         Animate
         <input
@@ -20,28 +14,21 @@ export function SimpleCoordAnimate() {
           onChange={(e) => setCoordVal(parseFloat(e.target.value))}
         />
         {/* Absolute to stop it affecting width when the numbers increase */}
-        <span style={{ position: 'absolute' }}>{coordVal}px</span>
+        <span className="absolute">{coordVal}px</span>
       </label>
       <motion.div
         animate={{ x: -coordVal }}
-        style={{
-          width: 'min-content',
-          border: '1px dotted lightgray',
-          marginBlock: '1rem',
-        }}
+        className="w-min border border-gray-100 my-4"
       >
-        <pre style={{ margin: 0 }}>
+        <pre className="m-0">
           &lt;motion.div animate={'{{'} x: -{coordVal} {'}}'}&gt;
         </pre>
       </motion.div>
       <motion.div
         animate={{ x: coordVal }}
-        style={{
-          width: 'min-content',
-          border: '1px dotted lightgray',
-        }}
+        className="w-min border border-gray-100"
       >
-        <pre style={{ margin: 0 }}>
+        <pre className="m-0">
           &lt;motion.div animate={'{{'} x: {coordVal} {'}}'}&gt;
         </pre>
       </motion.div>

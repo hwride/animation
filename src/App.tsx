@@ -6,7 +6,7 @@ function App() {
   const [selectedExample, setSelectedExample] = useState<string>()
 
   return (
-    <div style={{ display: 'flex', height: '100%' }}>
+    <div style={{ display: 'flex', height: '100%', textAlign: 'left' }}>
       <ol
         style={{
           borderRight: '1px solid black',
@@ -15,6 +15,9 @@ function App() {
           padding: '1em',
         }}
       >
+        <li>
+          <button onClick={() => setSelectedExample(undefined)}>Empty</button>
+        </li>
         <li>
           <button onClick={() => setSelectedExample('simpleCoordAnimate')}>
             Simple coordinate animation

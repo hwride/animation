@@ -3,6 +3,7 @@ import './SVGAnimate.css'
 import { ReactNode, useState } from 'react'
 import { TextInput } from '../components/TextInput.tsx'
 import { H2, H3 } from '../components/Headings.tsx'
+import { Page } from '../components/Page.tsx'
 
 function getVariants(opts: { pathLength: number; duration: number }) {
   return {
@@ -27,9 +28,8 @@ export function SVGAnimate() {
   const reRenderSvg = () => setKey((key) => key + 1)
 
   return (
-    <div className="pt-2">
+    <Page title="SVG animation">
       <div>
-        <H2>SVG animation</H2>
         <H3>Options</H3>
         <div className="grid grid-cols-2 mx-auto w-max">
           <LabelledTextInput
@@ -99,7 +99,7 @@ export function SVGAnimate() {
           variants={drawVariants}
         />
       </motion.svg>
-    </div>
+    </Page>
   )
 }
 

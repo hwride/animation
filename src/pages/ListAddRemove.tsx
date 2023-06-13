@@ -1,7 +1,8 @@
 import { AnimatePresence, motion } from 'framer-motion'
 import { useState } from 'react'
-import { H2 } from '../components/Headings.tsx'
 import { Button } from '../components/Button.tsx'
+import { Page } from '../components/Page.tsx'
+import { PageParagraph } from '../components/PageParagraph.tsx'
 
 export function ListAddRemove() {
   const [i, setI] = useState(4)
@@ -12,12 +13,10 @@ export function ListAddRemove() {
   ])
 
   return (
-    <div className="pt-2">
-      <H2>List add/remove</H2>
-
-      <p className="max-w-[80ch] mx-auto mb-2">
+    <Page title="List add/remove">
+      <PageParagraph className="mb-2">
         Test example showing animating of list items in and out of a list.
-      </p>
+      </PageParagraph>
 
       <Button
         className="mx-auto block"
@@ -63,6 +62,6 @@ export function ListAddRemove() {
           </AnimatePresence>
         </ul>
       </div>
-    </div>
+    </Page>
   )
 }

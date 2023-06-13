@@ -1,24 +1,23 @@
 import { AnimatePresence, motion } from 'framer-motion'
 import { useState } from 'react'
-import { H2 } from '../components/Headings.tsx'
 import { Button } from '../components/Button.tsx'
 import { Link } from '../components/Link.tsx'
+import { Page } from '../components/Page.tsx'
+import { PageParagraph } from '../components/PageParagraph.tsx'
 
 export function Keyframes() {
   const [key, setKey] = useState(0)
 
   return (
-    <div className="pt-2">
-      <H2>Keyframes</H2>
-
-      <p className="max-w-[80ch] mx-auto">
+    <Page title="Keyframes">
+      <PageParagraph>
         You can use{' '}
         <Link href="https://www.framer.com/motion/animation/##keyframes">
           keyframes
         </Link>{' '}
         to animate through a list of values in sequence. Do this by setting an
         array of values for the <code>animate</code> property.
-      </p>
+      </PageParagraph>
 
       <Button
         className="mx-auto block"
@@ -43,6 +42,6 @@ export function Keyframes() {
           </motion.div>
         </AnimatePresence>
       </div>
-    </div>
+    </Page>
   )
 }

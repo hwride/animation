@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import { useState } from 'react'
-import { H2, H3 } from '../components/Headings.tsx'
+import { H3 } from '../components/Headings.tsx'
+import { Page } from '../components/Page.tsx'
 
 export function SimpleAnimate() {
   const [coordVal, setCoordVal] = useState(50)
@@ -8,8 +9,7 @@ export function SimpleAnimate() {
   const animateColourVal = '#ff0000'
 
   return (
-    <div className="pt-2">
-      <H2>Simple animation</H2>
+    <Page title="Simple animation">
       <H3>Coordinates</H3>
       {/* Controls */}
       <div className="w-fit m-auto mt-2">
@@ -65,6 +65,6 @@ export function SimpleAnimate() {
           </pre>
         </motion.div>
       </div>
-    </div>
+    </Page>
   )
 }

@@ -1,17 +1,16 @@
 import { AnimatePresence, motion } from 'framer-motion'
 import { useState } from 'react'
-import { H2 } from '../components/Headings.tsx'
 import { Button } from '../components/Button.tsx'
 import { Link } from '../components/Link.tsx'
+import { Page } from '../components/Page.tsx'
+import { PageParagraph } from '../components/PageParagraph.tsx'
 
 export function EnterExit() {
   const [visible, setVisible] = useState(true)
 
   return (
-    <div className="pt-2">
-      <H2>Enter/exit animations</H2>
-
-      <p className="max-w-[80ch] mx-auto">
+    <Page title="Enter/exit">
+      <PageParagraph>
         You must use{' '}
         <Link href="https://www.framer.com/motion/animate-presence/">
           <code>AnimatePresence</code>
@@ -20,7 +19,7 @@ export function EnterExit() {
         an element is no longer rendered by React the element is instantly
         removed, so there's nothing to animate. <code>AnimatePresence</code>
         keeps the element around until the exit animation completes.
-      </p>
+      </PageParagraph>
 
       <Button
         className="mx-auto block"
@@ -59,6 +58,6 @@ export function EnterExit() {
           )}
         </AnimatePresence>
       </div>
-    </div>
+    </Page>
   )
 }

@@ -6,6 +6,7 @@ import { Button } from './components/Button.tsx'
 import { Link } from './components/Link.tsx'
 import { Keyframes } from './pages/Keyframes.tsx'
 import { ListAddRemove } from './pages/ListAddRemove.tsx'
+import { SVGAnimate } from './pages/SVGAnimate.tsx'
 
 type ConfigEntry = { label: string; Component: React.FC }
 const componentConfig: ConfigEntry[] = [
@@ -24,6 +25,10 @@ const componentConfig: ConfigEntry[] = [
   {
     label: 'List add/remove',
     Component: ListAddRemove,
+  },
+  {
+    label: 'SVG animation',
+    Component: SVGAnimate,
   },
 ]
 

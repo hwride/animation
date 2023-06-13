@@ -3,6 +3,8 @@ import { EnterExit } from './pages/EnterExit.tsx'
 import { Keyframes } from './pages/Keyframes.tsx'
 import { ListAddRemove } from './pages/ListAddRemove.tsx'
 import { SVGAnimate } from './pages/SVGAnimate.tsx'
+import { VariantsPropagation } from './pages/VariantsPropagation.tsx'
+import { VariantsBasic } from './pages/VariantsBasic.tsx'
 
 export type ConfigEntry = { id: string; label: string; Component: React.FC }
 export const componentConfig: ConfigEntry[] = [
@@ -20,6 +22,16 @@ export const componentConfig: ConfigEntry[] = [
     id: 'keyframes',
     label: 'Keyframes',
     Component: Keyframes,
+  },
+  {
+    id: 'variants_basic',
+    label: 'Variants basic',
+    Component: VariantsBasic,
+  },
+  {
+    id: 'variants_propagation',
+    label: 'Variants propagation',
+    Component: VariantsPropagation,
   },
   {
     id: 'list_add_remove',

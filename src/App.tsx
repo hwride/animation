@@ -1,6 +1,6 @@
 import './App.css'
 import { SimpleAnimate } from './pages/SimpleAnimate.tsx'
-import { ButtonHTMLAttributes, ReactNode, useState } from 'react'
+import { ButtonHTMLAttributes, ReactNode, useEffect, useState } from 'react'
 import { EnterExit } from './pages/EnterExit.tsx'
 import { Button } from './components/Button.tsx'
 import { Link } from './components/Link.tsx'
@@ -8,34 +8,62 @@ import { Keyframes } from './pages/Keyframes.tsx'
 import { ListAddRemove } from './pages/ListAddRemove.tsx'
 import { SVGAnimate } from './pages/SVGAnimate.tsx'
 
-type ConfigEntry = { label: string; Component: React.FC }
+type ConfigEntry = { id: string; label: string; Component: React.FC }
 const componentConfig: ConfigEntry[] = [
   {
+    id: 'simple_animation',
     label: 'Simple animation',
     Component: SimpleAnimate,
   },
   {
+    id: 'enter_exit',
     label: 'Enter/exit',
     Component: EnterExit,
   },
   {
+    id: 'keyframes',
     label: 'Keyframes',
     Component: Keyframes,
   },
   {
+    id: 'list_add_remove',
     label: 'List add/remove',
     Component: ListAddRemove,
   },
   {
+    id: 'svg_animation',
     label: 'SVG animation',
     Component: SVGAnimate,
   },
 ]
 
+function getEgFromQueryParams() {
+  const urlParams = new URLSearchParams(window.location.search)
+  const id = urlParams.get('id')
+  return id ? componentConfig.find((example) => example.id === id) : undefined
+}
+
 function App() {
-  const [selectedExample, setSelectedExample] = useState<ConfigEntry>()
+  const [selectedExample, setSelectedExample] = useState<
+    ConfigEntry | undefined
+  >(getEgFromQueryParams)
+
   const ComponentToRender: React.FC =
     selectedExample?.Component ?? EmptyComponent
+
+  const selectExample = (example: ConfigEntry) => {
+    const urlParams = new URLSearchParams(window.location.search)
+    urlParams.set('id', example.id)
+    window.history.pushState({}, '', '?' + urlParams.toString())
+    setSelectedExample(example)
+  }
+
+  // Listen for changes in query params with the forward/back buttons.
+  useEffect(() => {
+    const popstateListener = () => setSelectedExample(getEgFromQueryParams())
+    window.addEventListener('popstate', popstateListener)
+    return () => window.removeEventListener('popstate', popstateListener)
+  }, [])
 
   return (
     <div className="flex h-full text-left">
@@ -56,7 +84,7 @@ function App() {
           {componentConfig.map((entry, i) => {
             return (
               <li key={i}>
-                <ListButton onClick={() => setSelectedExample(entry)}>
+                <ListButton onClick={() => selectExample(entry)}>
                   {entry.label}
                 </ListButton>
               </li>

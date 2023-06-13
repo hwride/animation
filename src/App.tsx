@@ -5,6 +5,7 @@ import { EnterExit } from './pages/EnterExit.tsx'
 import { Button } from './components/Button.tsx'
 import { Link } from './components/Link.tsx'
 import { Keyframes } from './pages/Keyframes.tsx'
+import { ListAddRemove } from './pages/ListAddRemove.tsx'
 
 type ConfigEntry = { label: string; Component: React.FC }
 const componentConfig: ConfigEntry[] = [
@@ -19,6 +20,10 @@ const componentConfig: ConfigEntry[] = [
   {
     label: 'Keyframes',
     Component: Keyframes,
+  },
+  {
+    label: 'List add/remove',
+    Component: ListAddRemove,
   },
 ]
 

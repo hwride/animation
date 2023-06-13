@@ -9,7 +9,7 @@ export function Button({
     <button
       className={clsx(
         className,
-        'border border-black px-1 rounded mb-1 hover:bg-gray-100'
+        'border border-black px-1 rounded hover:bg-gray-100'
       )}
       {...rest}
     >

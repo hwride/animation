@@ -1,41 +1,8 @@
 import './App.css'
-import { SimpleAnimate } from './pages/SimpleAnimate.tsx'
 import { ButtonHTMLAttributes, ReactNode, useEffect, useState } from 'react'
-import { EnterExit } from './pages/EnterExit.tsx'
 import { Button } from './components/Button.tsx'
 import { Link } from './components/Link.tsx'
-import { Keyframes } from './pages/Keyframes.tsx'
-import { ListAddRemove } from './pages/ListAddRemove.tsx'
-import { SVGAnimate } from './pages/SVGAnimate.tsx'
-
-type ConfigEntry = { id: string; label: string; Component: React.FC }
-const componentConfig: ConfigEntry[] = [
-  {
-    id: 'simple_animation',
-    label: 'Simple animation',
-    Component: SimpleAnimate,
-  },
-  {
-    id: 'enter_exit',
-    label: 'Enter/exit',
-    Component: EnterExit,
-  },
-  {
-    id: 'keyframes',
-    label: 'Keyframes',
-    Component: Keyframes,
-  },
-  {
-    id: 'list_add_remove',
-    label: 'List add/remove',
-    Component: ListAddRemove,
-  },
-  {
-    id: 'svg_animation',
-    label: 'SVG animation',
-    Component: SVGAnimate,
-  },
-]
+import { componentConfig, ConfigEntry } from './exampleConfig.ts'
 
 function getEgFromQueryParams() {
   const urlParams = new URLSearchParams(window.location.search)

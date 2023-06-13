@@ -1,6 +1,6 @@
 import { AnimatePresence, motion } from 'framer-motion'
 import { useState } from 'react'
-import { SubHeading } from '../components/SubHeading.tsx'
+import { H2 } from '../components/Headings.tsx'
 import { Button } from '../components/Button.tsx'
 import { Link } from '../components/Link.tsx'
 
@@ -9,7 +9,7 @@ export function Keyframes() {
 
   return (
     <div className="pt-2">
-      <SubHeading>Enter/exit animations</SubHeading>
+      <H2>Keyframes</H2>
 
       <p className="max-w-[80ch] mx-auto">
         You can use{' '}

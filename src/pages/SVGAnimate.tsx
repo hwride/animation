@@ -2,7 +2,7 @@ import { motion } from 'framer-motion'
 import './SVGAnimate.css'
 import { ReactNode, useState } from 'react'
 import { TextInput } from '../components/TextInput.tsx'
-import { SubHeading } from '../components/SubHeading.tsx'
+import { H2, H3 } from '../components/Headings.tsx'
 
 function getVariants(opts: { pathLength: number; duration: number }) {
   return {
@@ -29,7 +29,8 @@ export function SVGAnimate() {
   return (
     <div className="pt-2">
       <div>
-        <SubHeading>Options</SubHeading>
+        <H2>SVG animation</H2>
+        <H3>Options</H3>
         <div className="grid grid-cols-2 mx-auto w-max">
           <LabelledTextInput
             id="path-length"
@@ -55,7 +56,7 @@ export function SVGAnimate() {
         </pre>
       </div>
 
-      <SubHeading>SVG</SubHeading>
+      <H2>SVG</H2>
       <motion.svg
         className="mx-auto"
         key={key}

@@ -1,6 +1,6 @@
 import { AnimatePresence, motion } from 'framer-motion'
 import { useState } from 'react'
-import { SubHeading } from '../components/SubHeading.tsx'
+import { H2 } from '../components/Headings.tsx'
 import { Button } from '../components/Button.tsx'
 
 export function ListAddRemove() {
@@ -13,7 +13,7 @@ export function ListAddRemove() {
 
   return (
     <div className="pt-2">
-      <SubHeading>List add/remove</SubHeading>
+      <H2>List add/remove</H2>
 
       <p className="max-w-[80ch] mx-auto mb-2">
         Test example showing animating of list items in and out of a list.

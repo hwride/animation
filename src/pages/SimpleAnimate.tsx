@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 import { useState } from 'react'
-import { SubHeading } from '../components/SubHeading.tsx'
+import { H2, H3 } from '../components/Headings.tsx'
 
 export function SimpleAnimate() {
   const [coordVal, setCoordVal] = useState(50)
@@ -9,7 +9,8 @@ export function SimpleAnimate() {
 
   return (
     <div className="pt-2">
-      <SubHeading>Coordinates</SubHeading>
+      <H2>Simple animation</H2>
+      <H3>Coordinates</H3>
       {/* Controls */}
       <div className="w-fit m-auto mt-2">
         <label>
@@ -46,7 +47,7 @@ export function SimpleAnimate() {
         </motion.div>
       </div>
 
-      <SubHeading>Colour</SubHeading>
+      <H3>Colour</H3>
       <div className="w-min m-auto">
         <motion.div
           className="p-4"

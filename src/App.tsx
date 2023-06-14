@@ -33,7 +33,7 @@ function App() {
   }, [])
 
   return (
-    <div className="flex h-full text-left">
+    <div className="flex min-h-full text-left">
       <div className="flex flex-col border-black border-r p-4">
         <ListButton onClick={() => setSelectedExample(undefined)}>
           Empty

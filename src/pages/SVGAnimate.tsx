@@ -4,6 +4,8 @@ import { ReactNode, useState } from 'react'
 import { TextInput } from '../components/TextInput.tsx'
 import { H2, H3 } from '../components/Headings.tsx'
 import { Page } from '../components/Page.tsx'
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
+import { dark } from 'react-syntax-highlighter/dist/esm/styles/prism'
 
 function getVariants(opts: {
   pathLength: number
@@ -82,9 +84,11 @@ export function SVGAnimate() {
             }}
           />
         </div>
-        <pre className="mx-auto max-w-lg mt-4">
-          <code>variants: {JSON.stringify(drawVariants, null, 2)}</code>
-        </pre>
+        <div className="mx-auto w-fit">
+          <SyntaxHighlighter language="jsx" style={dark}>
+            {'variants: ' + JSON.stringify(drawVariants, null, 2)}
+          </SyntaxHighlighter>
+        </div>
       </div>
 
       <H2>SVG</H2>

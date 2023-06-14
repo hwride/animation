@@ -4,6 +4,8 @@ import { Button } from '../components/Button.tsx'
 import { Link } from '../components/Link.tsx'
 import { Page } from '../components/Page.tsx'
 import { PageParagraph } from '../components/PageParagraph.tsx'
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
+import { dark } from 'react-syntax-highlighter/dist/esm/styles/prism'
 
 export function EnterExit() {
   const [visible, setVisible] = useState(true)
@@ -37,23 +39,16 @@ export function EnterExit() {
               exit={{ opacity: 0 }}
               transition={{ duration: 0.5 }}
             >
-              <pre>
-                &lt;AnimatePresence&gt;
-                <br />
-                &nbsp;&nbsp;&lt;motion.div
-                <br />
-                &nbsp;&nbsp;&nbsp;&nbsp;initial={'{{'} opacity: 0 {'}}'}
-                <br />
-                &nbsp;&nbsp;&nbsp;&nbsp;animate={'{{'} opacity: 1 {'}}'}
-                <br />
-                &nbsp;&nbsp;&nbsp;&nbsp;exit={'{{'} opacity: 0 {'}}'}
-                <br />
-                &nbsp;&nbsp;&nbsp;&nbsp;transition={'{{'} duration: 0.5 {'}}'}
-                <br />
-                &nbsp;&nbsp;{'}}'}&gt;
-                <br />
-                &lt;/AnimatePresence&gt;
-              </pre>
+              <SyntaxHighlighter language="jsx" style={dark}>
+                {`<AnimatePresence>
+  <motion.div
+    initial={{ opacity: 0 }}
+    animate={{ opacity: 1 }}
+    exit={{ opacity: 0 }}
+    transition={{ duration: 0.5 }}
+  />
+</AnimatePresence>`}
+              </SyntaxHighlighter>
             </motion.div>
           )}
         </AnimatePresence>

@@ -46,7 +46,7 @@ export function VariantsPropagation() {
           className="mx-auto block mb-2"
           onClick={() => setKey((key) => key + 1)}
         >
-          Re-mount
+          Re-mount component
         </Button>
         <motion.div
           className="w-[200px] h-[200px] bg-red-400 flex mx-auto items-center justify-center"

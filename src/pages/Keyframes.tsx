@@ -4,6 +4,8 @@ import { Button } from '../components/Button.tsx'
 import { Link } from '../components/Link.tsx'
 import { Page } from '../components/Page.tsx'
 import { PageParagraph } from '../components/PageParagraph.tsx'
+import { dark } from 'react-syntax-highlighter/dist/esm/styles/prism'
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
 
 export function Keyframes() {
   const [key, setKey] = useState(0)
@@ -34,11 +36,9 @@ export function Keyframes() {
             }}
             transition={{ duration: 3 }}
           >
-            <pre>
-              &lt;motion.div animate={'{{'} rotate: [0, 0, 180, 180, 270, 0]{' '}
-              {'}}'}
-              &gt;
-            </pre>
+            <SyntaxHighlighter language="jsx" style={dark}>
+              {`<motion.div animate={{ rotate: [0, 0, 180, 180, 270, 0] }}>`}
+            </SyntaxHighlighter>
           </motion.div>
         </AnimatePresence>
       </div>

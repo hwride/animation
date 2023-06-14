@@ -73,7 +73,7 @@ const grandChildVariants = {
         </SyntaxHighlighter>
       </div>
 
-      <div className="w-min m-auto mt-4 mb-4" key={key}>
+      <div className="w-min m-auto mt-2 mb-4" key={key}>
         <Button
           className="mx-auto block mb-2"
           onClick={() => setKey((key) => key + 1)}

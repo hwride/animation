@@ -18,9 +18,13 @@ function App() {
   const ComponentToRender: React.FC =
     selectedExample?.Component ?? EmptyComponent
 
-  const selectExample = (example: ConfigEntry) => {
+  const selectExample = (example?: ConfigEntry) => {
     const urlParams = new URLSearchParams(window.location.search)
-    urlParams.set('id', example.id)
+    if (example) {
+      urlParams.set('id', example.id)
+    } else {
+      urlParams.delete('id')
+    }
     window.history.pushState({}, '', '?' + urlParams.toString())
     setSelectedExample(example)
   }
@@ -35,9 +39,7 @@ function App() {
   return (
     <div className="flex min-h-full text-left">
       <div className="flex flex-col border-black border-r p-4">
-        <ListButton onClick={() => setSelectedExample(undefined)}>
-          Empty
-        </ListButton>
+        <ListButton onClick={() => selectExample(undefined)}>Empty</ListButton>
         <h2 className="text-lg font-bold my-2">
           <Link
             className="underline text-blue-600 hover:text-blue-800 visited:text-purple-600"

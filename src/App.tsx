@@ -124,7 +124,7 @@ function Menu({
           animate={{ height: 'auto', opacity: 1 }}
           exit={{ height: 0, opacity: 0 }}
           transition={{ duration: 0.2 }}
-          className="fixed z-10 flex flex-col overflow-hidden border-b border-r border-black bg-white p-4 sm:static sm:flex"
+          className="fixed z-10 flex flex-col overflow-hidden border-b border-r border-black bg-white p-4 sm:static sm:flex sm:border-b-0"
         >
           <ListButton
             className="sm:hidden"

@@ -132,9 +132,6 @@ function Menu({
           >
             Close menu
           </ListButton>
-          <ListButton onClick={() => onMenuItemClick(undefined)}>
-            Empty
-          </ListButton>
           <h2 className="my-2 text-lg font-bold">
             <Link
               className="text-blue-600 underline visited:text-purple-600 hover:text-blue-800"

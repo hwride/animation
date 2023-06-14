@@ -4,6 +4,8 @@ import { Button } from '../components/Button.tsx'
 import { Link } from '../components/Link.tsx'
 import { Page } from '../components/Page.tsx'
 import { PageParagraph } from '../components/PageParagraph.tsx'
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
+import { dark } from 'react-syntax-highlighter/dist/esm/styles/prism'
 
 const parentVariants = {
   start: { backgroundColor: '#60a5fa' },
@@ -41,6 +43,36 @@ export function VariantsPropagation() {
         should happen at the same time.
       </PageParagraph>
 
+      <div className="mx-auto w-fit">
+        <SyntaxHighlighter language="jsx" style={dark}>
+          {`const parentVariants = {
+  start: { backgroundColor: '#60a5fa' },
+  end: { backgroundColor: '#f87171' },
+}
+const childVariants = {
+  start: { height: 0 },
+  end: { height: '100px' },
+}
+const grandChildVariants = {
+  start: { width: 0 },
+  end: { width: '20px' },
+}
+
+<motion.div
+  initial="start"
+  animate="end"
+  variants={parentVariants}
+>
+  <motion.div variants={childVariants}>
+    <motion.div variants={grandChildVariants}/>
+  </motion.div>
+  <motion.div variants={childVariants} />
+  <motion.div variants={childVariants} />
+  <motion.div variants={childVariants} />
+</motion.div>`}
+        </SyntaxHighlighter>
+      </div>
+
       <div className="w-min m-auto mt-4 mb-4" key={key}>
         <Button
           className="mx-auto block mb-2"
@@ -55,6 +87,14 @@ export function VariantsPropagation() {
           variants={parentVariants}
           transition={{ duration: 1 }}
         >
+          {[1, 2, 3].map((id) => (
+            <motion.div
+              key={id}
+              className="w-[30px] bg-green-400 inline-block mr-1"
+              variants={childVariants}
+              transition={{ duration: 1 }}
+            />
+          ))}
           <motion.div
             className="w-[30px] bg-green-400 mr-1 flex items-center justify-center"
             variants={childVariants}
@@ -69,14 +109,6 @@ export function VariantsPropagation() {
               transition={{ duration: 1 }}
             ></motion.div>
           </motion.div>
-          {[1, 2, 3, 4].map((id) => (
-            <motion.div
-              key={id}
-              className="w-[30px] bg-green-400 inline-block mr-1"
-              variants={childVariants}
-              transition={{ duration: 1 }}
-            />
-          ))}
         </motion.div>
       </div>
     </Page>

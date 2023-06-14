@@ -10,9 +10,6 @@ import { dark } from 'react-syntax-highlighter/dist/esm/styles/prism'
 const parentVariants = {
   start: {
     backgroundColor: '#60a5fa',
-    transition: {
-      when: 'afterChildren',
-    },
   },
   end: {
     backgroundColor: '#f87171',
@@ -46,13 +43,10 @@ export function VariantsOrchestration() {
         <SyntaxHighlighter language="jsx" style={dark}>
           {`const parentVariants = {
   start: {
-    backgroundColor: '#60a5fa',
-    // transition: {
-    //   when: 'afterChildren',
-    // },
+    backgroundColor: '#60a5fa', // Blue
   },
   end: {
-    backgroundColor: '#f87171',
+    backgroundColor: '#f87171', // Red
     transition: {
       // This delays the child animations until the parent's is complete.
       when: 'beforeChildren',
@@ -66,19 +60,13 @@ const childVariants = {
   start: { height: 0 },
   end: { height: '100px' },
 }
-const grandChildVariants = {
-  start: { width: 0 },
-  end: { width: '20px' },
-}
 
 <motion.div
   initial="start"
   animate="end"
   variants={parentVariants}
 >
-  <motion.div variants={childVariants}>
-    <motion.div variants={grandChildVariants}/>
-  </motion.div>
+  <motion.div variants={childVariants} />
   <motion.div variants={childVariants} />
   <motion.div variants={childVariants} />
   <motion.div variants={childVariants} />
@@ -100,7 +88,7 @@ const grandChildVariants = {
           variants={parentVariants}
           transition={{ duration: 1 }}
         >
-          {[1, 2, 3].map((id) => (
+          {[1, 2, 3, 4].map((id) => (
             <motion.div
               key={id}
               className="w-[30px] bg-green-400 inline-block mr-1"
@@ -108,20 +96,6 @@ const grandChildVariants = {
               transition={{ duration: 1 }}
             />
           ))}
-          <motion.div
-            className="w-[30px] bg-green-400 mr-1 flex items-center justify-center"
-            variants={childVariants}
-            transition={{ duration: 1 }}
-          >
-            <motion.div
-              className="h-[50px] bg-blue-400"
-              variants={{
-                start: { width: 0 },
-                end: { width: '20px' },
-              }}
-              transition={{ duration: 1 }}
-            ></motion.div>
-          </motion.div>
         </motion.div>
       </div>
     </Page>

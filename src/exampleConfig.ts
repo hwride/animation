@@ -5,6 +5,7 @@ import { ListAddRemove } from './pages/ListAddRemove.tsx'
 import { SVGAnimate } from './pages/SVGAnimate.tsx'
 import { VariantsPropagation } from './pages/VariantsPropagation.tsx'
 import { VariantsBasic } from './pages/VariantsBasic.tsx'
+import { VariantsOrchestration } from './pages/VariantsOrchestration.tsx'
 
 export type ConfigEntry = { id: string; label: string; Component: React.FC }
 export const componentConfig: ConfigEntry[] = [
@@ -32,6 +33,11 @@ export const componentConfig: ConfigEntry[] = [
     id: 'variants_propagation',
     label: 'Variants propagation',
     Component: VariantsPropagation,
+  },
+  {
+    id: 'variants_orchestration',
+    label: 'Variants orchestration',
+    Component: VariantsOrchestration,
   },
   {
     id: 'list_add_remove',

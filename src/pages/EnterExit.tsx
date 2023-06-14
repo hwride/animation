@@ -41,12 +41,12 @@ export function EnterExit() {
             >
               <SyntaxHighlighter language="jsx" style={dark}>
                 {`<AnimatePresence>
-  <motion.div
+  {visible && <motion.div
     initial={{ opacity: 0 }}
     animate={{ opacity: 1 }}
     exit={{ opacity: 0 }}
     transition={{ duration: 0.5 }}
-  />
+  />}
 </AnimatePresence>`}
               </SyntaxHighlighter>
             </motion.div>

@@ -106,7 +106,7 @@ export function VariantsOrchestration() {
 
 function Code() {
   return (
-    <SyntaxHighlighter language="jsx" style={dark}>
+    <SyntaxHighlighter language="jsx" style={dark} wrapLongLines={true}>
       {`const parentVariants = {
   start: {
     backgroundColor: '#60a5fa', // Blue

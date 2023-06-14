@@ -37,7 +37,16 @@ export function Keyframes() {
             transition={{ duration: 3 }}
           >
             <SyntaxHighlighter language="jsx" style={dark}>
-              {`<motion.div animate={{ rotate: [0, 0, 180, 180, 270, 0] }}>`}
+              {`<motion.div animate={{ 
+  rotate: [
+    0, 
+    0, 
+    180, 
+    180, 
+    270, 
+    0
+  ] 
+}}>`}
             </SyntaxHighlighter>
           </motion.div>
         </AnimatePresence>

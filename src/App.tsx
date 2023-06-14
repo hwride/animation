@@ -46,7 +46,7 @@ function App() {
   const { setIdQueryParamToExample } = useExampleQueryParams(setSelectedExample)
 
   return (
-    <div className="flex min-h-full text-left">
+    <div className="flex h-full text-left">
       <Menu
         onMenuItemClick={(example?: ConfigEntry) => {
           setIdQueryParamToExample(example)
@@ -55,7 +55,7 @@ function App() {
           if (menuIsCloseable) setMenuVisible(false)
         }}
       />
-      <div className="flex-1">
+      <div className="flex-1 overflow-auto">
         <ComponentToRender />
       </div>
     </div>

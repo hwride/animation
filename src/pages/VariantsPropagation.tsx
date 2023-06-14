@@ -4,8 +4,7 @@ import { Button } from '../components/Button.tsx'
 import { Link } from '../components/Link.tsx'
 import { Page } from '../components/Page.tsx'
 import { PageParagraph } from '../components/PageParagraph.tsx'
-import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
-import { dark } from 'react-syntax-highlighter/dist/esm/styles/prism'
+import { CodeSample } from '../components/CodeSample.tsx'
 
 const parentVariants = {
   start: { backgroundColor: '#60a5fa' },
@@ -44,7 +43,7 @@ export function VariantsPropagation() {
       </PageParagraph>
 
       <div className="mx-auto w-fit">
-        <SyntaxHighlighter language="jsx" style={dark}>
+        <CodeSample language="jsx">
           {`const parentVariants = {
   start: { backgroundColor: '#60a5fa' },
   end: { backgroundColor: '#f87171' },
@@ -70,7 +69,7 @@ const grandChildVariants = {
   <motion.div variants={childVariants} />
   <motion.div variants={childVariants} />
 </motion.div>`}
-        </SyntaxHighlighter>
+        </CodeSample>
       </div>
 
       <div className="m-auto mb-4 mt-2 w-min" key={key}>

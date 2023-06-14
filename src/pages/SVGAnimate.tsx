@@ -4,8 +4,7 @@ import { ReactNode, useState } from 'react'
 import { TextInput } from '../components/TextInput.tsx'
 import { H2, H3 } from '../components/Headings.tsx'
 import { Page } from '../components/Page.tsx'
-import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
-import { dark } from 'react-syntax-highlighter/dist/esm/styles/prism'
+import { CodeSample } from '../components/CodeSample.tsx'
 
 function getVariants(opts: {
   pathLength: number
@@ -85,9 +84,9 @@ export function SVGAnimate() {
           />
         </div>
         <div className="mx-auto w-fit">
-          <SyntaxHighlighter language="jsx" style={dark}>
+          <CodeSample language="jsx">
             {'variants: ' + JSON.stringify(drawVariants, null, 2)}
-          </SyntaxHighlighter>
+          </CodeSample>
         </div>
       </div>
 

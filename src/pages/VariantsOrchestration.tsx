@@ -4,8 +4,7 @@ import { Button } from '../components/Button.tsx'
 import { Link } from '../components/Link.tsx'
 import { Page } from '../components/Page.tsx'
 import { PageParagraph } from '../components/PageParagraph.tsx'
-import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
-import { dark } from 'react-syntax-highlighter/dist/esm/styles/prism'
+import { CodeSample } from '../components/CodeSample.tsx'
 import { useRerender } from '../utils/useRerender.ts'
 import { H3 } from '../components/Headings.tsx'
 import { TextInput } from '../components/TextInput.tsx'
@@ -106,7 +105,7 @@ export function VariantsOrchestration() {
 
 function Code() {
   return (
-    <SyntaxHighlighter language="jsx" style={dark} wrapLongLines={true}>
+    <CodeSample language="jsx" wrapLongLines={true}>
       {`const parentVariants = {
   start: {
     backgroundColor: '#60a5fa', // Blue
@@ -137,6 +136,6 @@ const childVariants = {
   <motion.div variants={childVariants} />
   <motion.div variants={childVariants} />
 </motion.div>`}
-    </SyntaxHighlighter>
+    </CodeSample>
   )
 }

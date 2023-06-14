@@ -3,8 +3,7 @@ import { Button } from '../components/Button.tsx'
 import { Link } from '../components/Link.tsx'
 import { Page } from '../components/Page.tsx'
 import { PageParagraph } from '../components/PageParagraph.tsx'
-import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
-import { dark } from 'react-syntax-highlighter/dist/esm/styles/prism'
+import { CodeSample } from '../components/CodeSample.tsx'
 import { useRerender } from '../utils/useRerender.ts'
 
 const variants = {
@@ -41,9 +40,7 @@ export function VariantsBasic() {
       </PageParagraph>
 
       <div className="mx-auto mb-4 block w-fit">
-        <SyntaxHighlighter language="jsx" style={dark}>
-          {codeStr}
-        </SyntaxHighlighter>
+        <CodeSample language="jsx">{codeStr}</CodeSample>
       </div>
 
       <Button className="mx-auto mt-2 block" onClick={rerender}>

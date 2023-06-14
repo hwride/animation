@@ -4,8 +4,7 @@ import { Button } from '../components/Button.tsx'
 import { Link } from '../components/Link.tsx'
 import { Page } from '../components/Page.tsx'
 import { PageParagraph } from '../components/PageParagraph.tsx'
-import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
-import { dark } from 'react-syntax-highlighter/dist/esm/styles/prism'
+import { CodeSample } from '../components/CodeSample.tsx'
 
 export function EnterExit() {
   const [visible, setVisible] = useState(true)
@@ -30,7 +29,7 @@ export function EnterExit() {
         Toggle visible
       </Button>
 
-      <div className="m-auto mb-4 mt-4 w-min">
+      <div className="mx-auto my-4">
         <AnimatePresence>
           {visible && (
             <motion.div
@@ -39,7 +38,7 @@ export function EnterExit() {
               exit={{ opacity: 0 }}
               transition={{ duration: 0.5 }}
             >
-              <SyntaxHighlighter language="jsx" style={dark}>
+              <CodeSample language="jsx">
                 {`<AnimatePresence>
   {visible && <motion.div
     initial={{ opacity: 0 }}
@@ -48,7 +47,7 @@ export function EnterExit() {
     transition={{ duration: 0.5 }}
   />}
 </AnimatePresence>`}
-              </SyntaxHighlighter>
+              </CodeSample>
             </motion.div>
           )}
         </AnimatePresence>

@@ -2,8 +2,7 @@ import { motion } from 'framer-motion'
 import { useState } from 'react'
 import { H3 } from '../components/Headings.tsx'
 import { Page } from '../components/Page.tsx'
-import { dark } from 'react-syntax-highlighter/dist/esm/styles/prism'
-import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
+import { CodeSample } from '../components/CodeSample.tsx'
 import { useRerender } from '../utils/useRerender.ts'
 import { Button } from '../components/Button.tsx'
 
@@ -40,14 +39,14 @@ function CoordinateAnimation() {
       {/* Animated stuff */}
       <div className="m-auto mb-4 mt-4 w-fit">
         <motion.div animate={{ x: -coordVal }}>
-          <SyntaxHighlighter language="jsx" style={dark}>
+          <CodeSample language="jsx">
             {`<motion.div animate={{ x: -${coordVal} }} />`}
-          </SyntaxHighlighter>
+          </CodeSample>
         </motion.div>
         <motion.div animate={{ x: coordVal }}>
-          <SyntaxHighlighter language="jsx" style={dark}>
+          <CodeSample language="jsx">
             {`<motion.div animate={{ x: ${coordVal} }} />`}
-          </SyntaxHighlighter>
+          </CodeSample>
         </motion.div>
       </div>
     </>
@@ -62,11 +61,11 @@ function ColourAnimation() {
     <>
       <H3>Colour</H3>
       <div className="mx-auto w-fit">
-        <SyntaxHighlighter language="jsx" style={dark}>
+        <CodeSample language="jsx">
           {`<motion.div 
   initial={{ backgroundColor: ${initialColourVal} }}
   animate={{ backgroundColor: ${animateColourVal} }} />`}
-        </SyntaxHighlighter>
+        </CodeSample>
       </div>
       <Button className="mx-auto my-2 block" onClick={rerender}>
         Re-mount component

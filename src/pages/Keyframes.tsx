@@ -4,8 +4,7 @@ import { Button } from '../components/Button.tsx'
 import { Link } from '../components/Link.tsx'
 import { Page } from '../components/Page.tsx'
 import { PageParagraph } from '../components/PageParagraph.tsx'
-import { dark } from 'react-syntax-highlighter/dist/esm/styles/prism'
-import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
+import { CodeSample } from '../components/CodeSample.tsx'
 
 export function Keyframes() {
   const [key, setKey] = useState(0)
@@ -28,7 +27,7 @@ export function Keyframes() {
         Remount component
       </Button>
 
-      <div className="m-auto mb-4 mt-4 w-min" key={key}>
+      <div className="mx-auto my-4" key={key}>
         <AnimatePresence>
           <motion.div
             animate={{
@@ -36,7 +35,7 @@ export function Keyframes() {
             }}
             transition={{ duration: 3 }}
           >
-            <SyntaxHighlighter language="jsx" style={dark}>
+            <CodeSample language="jsx">
               {`<motion.div animate={{ 
   rotate: [
     0, 
@@ -47,7 +46,7 @@ export function Keyframes() {
     0
   ] 
 }}>`}
-            </SyntaxHighlighter>
+            </CodeSample>
           </motion.div>
         </AnimatePresence>
       </div>

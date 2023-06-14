@@ -19,7 +19,7 @@ export function EnterExit() {
         </Link>{' '}
         when you want to have exit animations. This is because by default when
         an element is no longer rendered by React the element is instantly
-        removed, so there's nothing to animate. <code>AnimatePresence</code>
+        removed, so there's nothing to animate. <code>AnimatePresence</code>{' '}
         keeps the element around until the exit animation completes.
       </PageParagraph>
 

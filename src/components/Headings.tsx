@@ -5,7 +5,7 @@ export function H2({
   children,
 }: HTMLAttributes<HTMLHeadingElement>) {
   return (
-    <h2 className={'text-center text-lg font-bold mb-2' + (className ?? '')}>
+    <h2 className={'mb-2 text-center text-lg font-bold' + (className ?? '')}>
       {children}
     </h2>
   )
@@ -15,7 +15,7 @@ export function H3({
   children,
 }: HTMLAttributes<HTMLHeadingElement>) {
   return (
-    <h3 className={'text-center text-md font-bold mb-2' + (className ?? '')}>
+    <h3 className={'text-md mb-2 text-center font-bold' + (className ?? '')}>
       {children}
     </h3>
   )

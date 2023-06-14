@@ -48,7 +48,7 @@ function App() {
             animate={{ width: 'auto' }}
             exit={{ width: 0 }}
             transition={{ duration: 0.2 }}
-            className="flex flex-col border-black border-r p-4 overflow-hidden fixed bg-white z-10"
+            className="fixed z-10 flex flex-col overflow-hidden border-r border-black bg-white p-4"
           >
             <ListButton onClick={() => setMenuVisible(false)}>
               Close menu
@@ -56,16 +56,16 @@ function App() {
             <ListButton onClick={() => selectExample(undefined)}>
               Empty
             </ListButton>
-            <h2 className="text-lg font-bold my-2">
+            <h2 className="my-2 text-lg font-bold">
               <Link
-                className="underline text-blue-600 hover:text-blue-800 visited:text-purple-600"
+                className="text-blue-600 underline visited:text-purple-600 hover:text-blue-800"
                 href="https://www.framer.com/motion/"
                 target="_blank"
               >
                 Framer Motion
               </Link>
             </h2>
-            <ol className="flex-1 list-none m-0">
+            <ol className="m-0 flex-1 list-none">
               {componentConfig.map((entry, i) => {
                 return (
                   <li key={i} className="relative">
@@ -89,8 +89,6 @@ function App() {
   )
 }
 
-function Menu() {}
-
 function ListButton({
   children,
   className,
@@ -99,7 +97,7 @@ function ListButton({
   return (
     <Button
       className={clsx(
-        'border border-black rounded mb-1 hover:bg-gray-100',
+        'mb-1 rounded border border-black hover:bg-gray-100',
         className
       )}
       {...rest}
@@ -110,7 +108,7 @@ function ListButton({
 }
 function EmptyComponent() {
   return (
-    <div className="flex items-center justify-center h-full">
+    <div className="flex h-full items-center justify-center">
       Choose an example
     </div>
   )

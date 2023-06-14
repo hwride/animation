@@ -73,15 +73,15 @@ const grandChildVariants = {
         </SyntaxHighlighter>
       </div>
 
-      <div className="w-min m-auto mt-2 mb-4" key={key}>
+      <div className="m-auto mb-4 mt-2 w-min" key={key}>
         <Button
-          className="mx-auto block mb-2"
+          className="mx-auto mb-2 block"
           onClick={() => setKey((key) => key + 1)}
         >
           Re-mount component
         </Button>
         <motion.div
-          className="w-[200px] h-[200px] bg-red-400 flex mx-auto items-center justify-center"
+          className="mx-auto flex h-[200px] w-[200px] items-center justify-center bg-red-400"
           initial="start"
           animate="end"
           variants={parentVariants}
@@ -90,13 +90,13 @@ const grandChildVariants = {
           {[1, 2, 3].map((id) => (
             <motion.div
               key={id}
-              className="w-[30px] bg-green-400 inline-block mr-1"
+              className="mr-1 inline-block w-[30px] bg-green-400"
               variants={childVariants}
               transition={{ duration: 1 }}
             />
           ))}
           <motion.div
-            className="w-[30px] bg-green-400 mr-1 flex items-center justify-center"
+            className="mr-1 flex w-[30px] items-center justify-center bg-green-400"
             variants={childVariants}
             transition={{ duration: 1 }}
           >

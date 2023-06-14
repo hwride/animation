@@ -30,7 +30,7 @@ export function ListAddRemove() {
         Add item
       </Button>
 
-      <div className="w-min m-auto mt-4 mb-4">
+      <div className="m-auto mb-4 mt-4 w-min">
         <ul>
           {/* Note position of AnimatePresence. It must be the direct parent
            of the elements that are animating out. */}
@@ -39,7 +39,7 @@ export function ListAddRemove() {
               return (
                 <motion.li
                   key={li.id}
-                  className="w-80 border border-gray-300 mb-1 flex justify-between p-1"
+                  className="mb-1 flex w-80 justify-between border border-gray-300 p-1"
                   initial={{ opacity: 0, height: 0 }}
                   animate={{ opacity: 1, height: 'auto' }}
                   exit={{ opacity: 0, height: 0 }}

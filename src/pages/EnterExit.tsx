@@ -30,7 +30,7 @@ export function EnterExit() {
         Toggle visible
       </Button>
 
-      <div className="w-min m-auto mt-4 mb-4">
+      <div className="m-auto mb-4 mt-4 w-min">
         <AnimatePresence>
           {visible && (
             <motion.div

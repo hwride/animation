@@ -22,7 +22,7 @@ function CoordinateAnimation() {
     <>
       <H3>Coordinates</H3>
       {/* Controls */}
-      <div className="w-fit m-auto mt-2">
+      <div className="m-auto mt-2 w-fit">
         <label>
           <input
             className="mx-2"
@@ -38,7 +38,7 @@ function CoordinateAnimation() {
       </div>
 
       {/* Animated stuff */}
-      <div className="w-fit m-auto mt-4 mb-4">
+      <div className="m-auto mb-4 mt-4 w-fit">
         <motion.div animate={{ x: -coordVal }}>
           <SyntaxHighlighter language="jsx" style={dark}>
             {`<motion.div animate={{ x: -${coordVal} }} />`}
@@ -61,19 +61,19 @@ function ColourAnimation() {
   return (
     <>
       <H3>Colour</H3>
-      <div className="w-fit mx-auto">
+      <div className="mx-auto w-fit">
         <SyntaxHighlighter language="jsx" style={dark}>
           {`<motion.div 
   initial={{ backgroundColor: ${initialColourVal} }}
   animate={{ backgroundColor: ${animateColourVal} }} />`}
         </SyntaxHighlighter>
       </div>
-      <Button className="mx-auto block my-2" onClick={rerender}>
+      <Button className="mx-auto my-2 block" onClick={rerender}>
         Re-mount component
       </Button>
-      <div className="w-min m-auto" key={key}>
+      <div className="m-auto w-min" key={key}>
         <motion.div
-          className="p-4 w-20 h-20"
+          className="h-20 w-20 p-4"
           initial={{ backgroundColor: initialColourVal }}
           animate={{ backgroundColor: animateColourVal }}
         ></motion.div>

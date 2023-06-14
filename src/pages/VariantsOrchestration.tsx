@@ -50,8 +50,8 @@ export function VariantsOrchestration() {
       </div>
 
       <H3>Controls</H3>
-      <div className="w-min m-auto mt-2 mb-4">
-        <div className="grid grid-cols-2 mx-auto w-max">
+      <div className="m-auto mb-4 mt-2 w-min">
+        <div className="mx-auto grid w-max grid-cols-2">
           <label htmlFor="when">
             <code>when</code>
           </label>
@@ -77,14 +77,14 @@ export function VariantsOrchestration() {
           />
         </div>
 
-        <Button className="mx-auto block my-2" onClick={rerender}>
+        <Button className="mx-auto my-2 block" onClick={rerender}>
           Re-mount component
         </Button>
 
         <H3>Animation</H3>
-        <div className="w-min m-auto mt-2 mb-4" key={key}>
+        <div className="m-auto mb-4 mt-2 w-min" key={key}>
           <motion.div
-            className="w-[200px] h-[200px] bg-red-400 flex mx-auto items-center justify-center"
+            className="mx-auto flex h-[200px] w-[200px] items-center justify-center bg-red-400"
             initial="start"
             animate="end"
             variants={getParentVariants(when, Number(staggerChildren))}
@@ -92,7 +92,7 @@ export function VariantsOrchestration() {
             {[1, 2, 3, 4].map((id) => (
               <motion.div
                 key={id}
-                className="w-[30px] bg-green-400 inline-block mr-1"
+                className="mr-1 inline-block w-[30px] bg-green-400"
                 variants={childVariants}
                 transition={{ duration: 1 }}
               />

@@ -9,6 +9,6 @@ export function PageParagraph({
   children: ReactNode
 }) {
   return (
-    <p className={clsx(className, 'max-w-[80ch] mx-auto mb-2')}>{children}</p>
+    <p className={clsx(className, 'mx-auto mb-2 max-w-[80ch]')}>{children}</p>
   )
 }

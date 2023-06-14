@@ -44,7 +44,7 @@ export function SVGAnimate() {
     <Page title="SVG animation">
       <div>
         <H3>Options</H3>
-        <div className="grid grid-cols-2 mx-auto w-max">
+        <div className="mx-auto grid w-max grid-cols-2">
           <PathRangeInput
             id="path-length"
             label={<code>pathLength</code>}

@@ -28,7 +28,7 @@ export function Keyframes() {
         Remount component
       </Button>
 
-      <div className="w-min m-auto mt-4 mb-4" key={key}>
+      <div className="m-auto mb-4 mt-4 w-min" key={key}>
         <AnimatePresence>
           <motion.div
             animate={{

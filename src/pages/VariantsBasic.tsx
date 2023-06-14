@@ -40,16 +40,16 @@ export function VariantsBasic() {
         these names.
       </PageParagraph>
 
-      <div className="mb-4 block mx-auto w-fit">
+      <div className="mx-auto mb-4 block w-fit">
         <SyntaxHighlighter language="jsx" style={dark}>
           {codeStr}
         </SyntaxHighlighter>
       </div>
 
-      <Button className="mx-auto block mt-2" onClick={rerender}>
+      <Button className="mx-auto mt-2 block" onClick={rerender}>
         Re-mount component
       </Button>
-      <div className="w-min m-auto mt-4 mb-4" key={key}>
+      <div className="m-auto mb-4 mt-4 w-min" key={key}>
         <motion.div
           className="w-[200px] bg-blue-400"
           initial="heightSmall"

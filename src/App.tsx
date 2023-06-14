@@ -3,6 +3,7 @@ import { ButtonHTMLAttributes, ReactNode, useEffect, useState } from 'react'
 import { Button } from './components/Button.tsx'
 import { Link } from './components/Link.tsx'
 import { componentConfig, ConfigEntry } from './exampleConfig.ts'
+import { clsx } from './utils/clsx.ts'
 
 function getEgFromQueryParams() {
   const urlParams = new URLSearchParams(window.location.search)
@@ -52,8 +53,11 @@ function App() {
         <ol className="flex-1 list-none m-0">
           {componentConfig.map((entry, i) => {
             return (
-              <li key={i}>
-                <ListButton onClick={() => selectExample(entry)}>
+              <li key={i} className="relative">
+                <ListButton
+                  className="w-full"
+                  onClick={() => selectExample(entry)}
+                >
                   {entry.label}
                 </ListButton>
               </li>
@@ -75,10 +79,10 @@ function ListButton({
 }: ButtonHTMLAttributes<HTMLButtonElement> & { children: ReactNode }) {
   return (
     <Button
-      className={
-        'border border-black px-1 rounded mb-1 hover:bg-gray-100' +
-        (className ?? '')
-      }
+      className={clsx(
+        'border border-black rounded mb-1 hover:bg-gray-100',
+        className
+      )}
       {...rest}
     >
       {children}

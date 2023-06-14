@@ -9,7 +9,7 @@ export function Page({
   children: ReactNode
 }) {
   return (
-    <div className="pt-2">
+    <div className="p-2">
       <H2>{title}</H2>
       {children}
     </div>

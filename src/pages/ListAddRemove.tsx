@@ -13,14 +13,22 @@ export function ListAddRemove() {
     { id: 2, label: 'List item ' + 2 },
     { id: 3, label: 'List item ' + 3 },
   ])
-  const [duration, setDuration] = useState('.2')
+  const [duration, setDuration] = useState('.5')
   const [opacityDuration, setOpacityDuration] = useState('.2')
-  const [transitionType, setTransitionType] = useState('tween')
+  const [transitionType, setTransitionType] = useState('spring')
 
   return (
     <Page title="List add/remove">
-      <PageParagraph className="mb-2">
+      <PageParagraph>
         Test example showing animating of list items in and out of a list.
+      </PageParagraph>
+
+      <PageParagraph className="mb-2">
+        When you are animating height with Framer Motion there is a gotcha to be
+        aware of. Having spacing such as padding class on the element that is
+        animating can cause the height animation calculations to mess up and
+        look jumpy. This is why in this example the padding is applied on an
+        extra element below the <code>motion.li</code>.
       </PageParagraph>
 
       <H3>Controls</H3>
@@ -78,16 +86,16 @@ export function ListAddRemove() {
         Add item
       </Button>
 
-      <div className="m-auto mb-4 mt-4 w-min">
+      <div className="m-auto mb-4 mt-4 w-fit">
         <ul>
           {/* Note position of AnimatePresence. It must be the direct parent
            of the elements that are animating out. */}
-          <AnimatePresence initial={false}>
+          <AnimatePresence initial={true}>
             {listItems.map((li) => {
               return (
                 <motion.li
                   key={li.id}
-                  className="mb-1 flex w-80 justify-between overflow-hidden rounded border border-gray-300 bg-blue-200 p-1"
+                  className="overflow-hidden"
                   initial={{ opacity: 0, height: 0 }}
                   animate={{ opacity: 1, height: 'auto' }}
                   exit={{ opacity: 0, height: 0 }}
@@ -97,17 +105,19 @@ export function ListAddRemove() {
                     opacity: { duration: 0.1 },
                   }}
                 >
-                  {li.label}
-                  <Button
-                    className="ml-auto inline-block border-gray-200 bg-white text-black"
-                    onClick={() =>
-                      setListItems((lis) =>
-                        lis.filter((liInner) => liInner.id !== li.id)
-                      )
-                    }
-                  >
-                    Remove
-                  </Button>
+                  <div className="mb-1 flex w-80 justify-between rounded border border-gray-300 bg-blue-200 p-1">
+                    {li.label}
+                    <Button
+                      className="ml-auto inline-block border-gray-200 bg-white text-black"
+                      onClick={() =>
+                        setListItems((lis) =>
+                          lis.filter((liInner) => liInner.id !== li.id)
+                        )
+                      }
+                    >
+                      Remove
+                    </Button>
+                  </div>
                 </motion.li>
               )
             })}

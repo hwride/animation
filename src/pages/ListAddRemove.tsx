@@ -14,8 +14,8 @@ export function ListAddRemove() {
     { id: 3, label: 'List item ' + 3 },
   ])
   const [duration, setDuration] = useState('.2')
-  const [opacityDuration, setOpacityDuration] = useState('.1')
-  const [transitionType, setTransitionType] = useState('spring')
+  const [opacityDuration, setOpacityDuration] = useState('.2')
+  const [transitionType, setTransitionType] = useState('tween')
 
   return (
     <Page title="List add/remove">

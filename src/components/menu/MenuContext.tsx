@@ -16,7 +16,7 @@ export const useMenu = () => {
 }
 
 export const MenuProvider = ({ children }: { children: ReactNode }) => {
-  const [menuVisible, setMenuVisible] = useState<boolean>(true)
+  const [menuVisible, setMenuVisible] = useState<boolean>(false)
 
   return (
     <MenuContext.Provider value={{ menuVisible, setMenuVisible }}>

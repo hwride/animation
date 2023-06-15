@@ -34,20 +34,20 @@ export function ListAddRemove() {
         <ul>
           {/* Note position of AnimatePresence. It must be the direct parent
            of the elements that are animating out. */}
-          <AnimatePresence>
+          <AnimatePresence initial={false}>
             {listItems.map((li) => {
               return (
                 <motion.li
                   key={li.id}
-                  className="mb-1 flex w-80 justify-between border border-gray-300 p-1"
+                  className="mb-1 flex w-80 justify-between overflow-hidden rounded border border-gray-300 bg-blue-200 p-1"
                   initial={{ opacity: 0, height: 0 }}
                   animate={{ opacity: 1, height: 'auto' }}
                   exit={{ opacity: 0, height: 0 }}
-                  transition={{ duration: 0.15 }}
+                  transition={{ duration: 0.2 }}
                 >
                   {li.label}
                   <Button
-                    className="ml-auto inline-block border-gray-200"
+                    className="ml-auto inline-block border-gray-200 bg-white text-black"
                     onClick={() =>
                       setListItems((lis) =>
                         lis.filter((liInner) => liInner.id !== li.id)

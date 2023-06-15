@@ -11,6 +11,7 @@ Deployed at https://hwride.github.io/animation
 - [TypeScript](https://www.typescriptlang.org/)
 - [React](https://react.dev/)
 - [Tailwind](https://tailwindcss.com/)
+- [Radix UI](https://www.radix-ui.com/docs/primitives/overview/introduction)
 - [GitHub Actions](https://docs.github.com/en/actions)
 
 ## Bundle size

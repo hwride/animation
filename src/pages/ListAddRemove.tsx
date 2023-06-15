@@ -5,6 +5,7 @@ import { Page } from '../components/Page.tsx'
 import { PageParagraph } from '../components/PageParagraph.tsx'
 import { H3 } from '../components/Headings.tsx'
 import { TextInput } from '../components/TextInput.tsx'
+import { CodeSample } from '../components/CodeSample.tsx'
 
 export function ListAddRemove() {
   const [i, setI] = useState(4)
@@ -90,7 +91,7 @@ export function ListAddRemove() {
         <ul>
           {/* Note position of AnimatePresence. It must be the direct parent
            of the elements that are animating out. */}
-          <AnimatePresence initial={true}>
+          <AnimatePresence initial={false}>
             {listItems.map((li) => {
               return (
                 <motion.li
@@ -123,6 +124,34 @@ export function ListAddRemove() {
             })}
           </AnimatePresence>
         </ul>
+      </div>
+
+      <div className="m-auto w-fit">
+        <CodeSample language="jsx">
+          {`<ul>
+  <AnimatePresence initial={false}>
+    {listItems.map((li) => (
+      <motion.li
+        className="overflow-hidden"
+        initial={{ opacity: 0, height: 0 }}
+        animate={{ opacity: 1, height: 'auto' }}
+        exit={{ opacity: 0, height: 0 }}
+        transition={{
+          type: 'spring', // Note spring is the default for height
+          duration: 0.4,
+          opacity: { duration: 0.1 },
+        }}
+      >
+        {/* Note the spacing being applied internally here */}
+        <div className="mb-1 p-1">
+          {li.label}
+          <button>Remove</button>
+        </div>
+      </motion.li>
+    ))}
+  </AnimatePresence>
+</ul>`}
+        </CodeSample>
       </div>
     </Page>
   )

@@ -22,7 +22,10 @@ export function VariantsPropagation() {
     <Page title="Variants propagation">
       <PageParagraph>
         Variants also have{' '}
-        <Link href="https://www.framer.com/motion/animation/##propagation">
+        <Link
+          href="https://www.framer.com/motion/animation/##propagation"
+          target="_blank"
+        >
           propagation
         </Link>{' '}
         properties. If you assign a variant name to an animation property, all

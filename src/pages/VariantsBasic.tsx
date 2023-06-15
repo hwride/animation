@@ -29,7 +29,10 @@ export function VariantsBasic() {
     <Page title="Variants basic">
       <PageParagraph>
         You can use{' '}
-        <Link href="https://www.framer.com/motion/animation/#variants">
+        <Link
+          href="https://www.framer.com/motion/animation/#variants"
+          target="_blank"
+        >
           variants
         </Link>{' '}
         to share animation property settings. The way it works is you define

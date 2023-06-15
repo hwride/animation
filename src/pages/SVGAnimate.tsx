@@ -40,7 +40,7 @@ export function SVGAnimate() {
   const reRenderSvg = () => setKey((key) => key + 1)
 
   return (
-    <Page title="SVG animation">
+    <Page title="SVG animation" className="svg-animate">
       <div>
         <H3>Options</H3>
         <div className="mx-auto grid w-max grid-cols-2">

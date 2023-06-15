@@ -1,6 +1,6 @@
-circle,
-rect,
-line {
+.svg-animate circle,
+.svg-animate rect,
+.svg-animate line {
   stroke-width: 10px;
   stroke-linecap: round;
   fill: transparent;

@@ -13,7 +13,10 @@ export function Keyframes() {
     <Page title="Keyframes">
       <PageParagraph>
         You can use{' '}
-        <Link href="https://www.framer.com/motion/animation/##keyframes">
+        <Link
+          href="https://www.framer.com/motion/animation/##keyframes"
+          target="_blank"
+        >
           keyframes
         </Link>{' '}
         to animate through a list of values in sequence. Do this by setting an
@@ -27,7 +30,7 @@ export function Keyframes() {
         Remount component
       </Button>
 
-      <div className="mx-auto my-4" key={key}>
+      <div className="mx-auto my-4 w-fit" key={key}>
         <AnimatePresence>
           <motion.div
             animate={{

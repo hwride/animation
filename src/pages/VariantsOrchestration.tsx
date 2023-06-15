@@ -36,7 +36,10 @@ export function VariantsOrchestration() {
     <Page title="Variants orchestration">
       <PageParagraph>
         Variants also have{' '}
-        <Link href="https://www.framer.com/motion/animation/##orchestration">
+        <Link
+          href="https://www.framer.com/motion/animation/##orchestration"
+          target="_blank"
+        >
           orchestration
         </Link>{' '}
         properties. These allow you to control the order in which different

@@ -13,7 +13,10 @@ export function EnterExit() {
     <Page title="Enter/exit">
       <PageParagraph>
         You must use{' '}
-        <Link href="https://www.framer.com/motion/animate-presence/">
+        <Link
+          href="https://www.framer.com/motion/animate-presence/"
+          target="_blank"
+        >
           <code>AnimatePresence</code>
         </Link>{' '}
         when you want to have exit animations. This is because by default when
@@ -29,7 +32,7 @@ export function EnterExit() {
         Toggle visible
       </Button>
 
-      <div className="mx-auto my-4">
+      <div className="mx-auto my-4 w-fit">
         <AnimatePresence>
           {visible && (
             <motion.div

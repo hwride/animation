@@ -1,8 +1,10 @@
 import { AnimatePresence, motion } from 'framer-motion'
-import { useState } from 'react'
+import { InputHTMLAttributes, ReactNode, useState } from 'react'
 import { Button } from '../components/Button.tsx'
 import { Page } from '../components/Page.tsx'
 import { PageParagraph } from '../components/PageParagraph.tsx'
+import { H3 } from '../components/Headings.tsx'
+import { TextInput } from '../components/TextInput.tsx'
 
 export function ListAddRemove() {
   const [i, setI] = useState(4)
@@ -11,6 +13,9 @@ export function ListAddRemove() {
     { id: 2, label: 'List item ' + 2 },
     { id: 3, label: 'List item ' + 3 },
   ])
+  const [duration, setDuration] = useState('.2')
+  const [opacityDuration, setOpacityDuration] = useState('.1')
+  const [transitionType, setTransitionType] = useState('spring')
 
   return (
     <Page title="List add/remove">
@@ -18,8 +23,51 @@ export function ListAddRemove() {
         Test example showing animating of list items in and out of a list.
       </PageParagraph>
 
+      <H3>Controls</H3>
+      <div className="mx-auto grid w-max grid-cols-2 gap-2">
+        <label htmlFor="transitionType">
+          <code>transition.type</code>
+        </label>
+        <select
+          className="border border-gray-100 font-mono"
+          value={transitionType}
+          onChange={(e) => setTransitionType(e.target.value)}
+        >
+          <option value="spring">spring</option>
+          <option value="tween">tween</option>
+        </select>
+
+        <LabelledTextInput
+          id="duration"
+          type="number"
+          min={0}
+          step={0.05}
+          max={20}
+          label={
+            <>
+              <code>duration</code> (ms)
+            </>
+          }
+          onChangeValue={setDuration}
+          value={duration}
+        />
+        <LabelledTextInput
+          id="opacityDuration"
+          type="number"
+          min={0}
+          step={0.05}
+          max={20}
+          label={
+            <>
+              <code>opacity.duration</code> (ms)
+            </>
+          }
+          onChangeValue={setOpacityDuration}
+          value={opacityDuration}
+        />
+      </div>
       <Button
-        className="mx-auto block"
+        className="mx-auto mt-2 block"
         onClick={() => {
           setListItems((listItems) =>
             listItems.concat([{ id: i, label: 'List item ' + i }])
@@ -43,7 +91,11 @@ export function ListAddRemove() {
                   initial={{ opacity: 0, height: 0 }}
                   animate={{ opacity: 1, height: 'auto' }}
                   exit={{ opacity: 0, height: 0 }}
-                  transition={{ duration: 0.2 }}
+                  transition={{
+                    type: transitionType,
+                    duration: Number(duration),
+                    opacity: { duration: 0.1 },
+                  }}
                 >
                   {li.label}
                   <Button
@@ -63,5 +115,28 @@ export function ListAddRemove() {
         </ul>
       </div>
     </Page>
+  )
+}
+
+function LabelledTextInput({
+  id,
+  label,
+  onChangeValue,
+  ...rest
+}: {
+  id: string
+  label: ReactNode
+  onChangeValue: (v: string) => void
+} & InputHTMLAttributes<HTMLInputElement>) {
+  return (
+    <>
+      <label htmlFor={id}>{label}</label>
+      <TextInput
+        id={id}
+        type="number"
+        {...rest}
+        onChange={(e) => onChangeValue(e.target.value)}
+      />
+    </>
   )
 }

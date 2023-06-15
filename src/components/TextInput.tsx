@@ -5,6 +5,9 @@ export function TextInput({
   ...rest
 }: InputHTMLAttributes<HTMLInputElement>) {
   return (
-    <input className={'border border-gray-100' + (className ?? '')} {...rest} />
+    <input
+      className={'border border-gray-100 px-1' + (className ?? '')}
+      {...rest}
+    />
   )
 }

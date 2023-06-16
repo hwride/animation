@@ -52,10 +52,7 @@ function DialogMenu({
       <AnimatePresence>
         {menuVisible && (
           <Dialog.Portal forceMount>
-            <Dialog.Overlay
-              forceMount
-              // className="fixed inset-[0] bg-black opacity-40 sm:hidden"
-            >
+            <Dialog.Overlay forceMount>
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 0.4 }}

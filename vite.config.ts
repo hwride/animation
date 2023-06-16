@@ -6,4 +6,7 @@ import { visualizer } from 'rollup-plugin-visualizer'
 export default defineConfig({
   base: '/animation/',
   plugins: [react(), visualizer()],
+  build: {
+    sourcemap: true,
+  },
 })

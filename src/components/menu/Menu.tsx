@@ -54,31 +54,39 @@ function DialogMenu({
           <Dialog.Portal forceMount>
             <Dialog.Overlay
               forceMount
-              className="sm:no fixed inset-[0] bg-black opacity-40 sm:hidden"
-            />
+              // className="fixed inset-[0] bg-black opacity-40 sm:hidden"
+            >
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 0.4 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.3 }}
+                className="sm:no fixed inset-[0] bg-black opacity-40 "
+              ></motion.div>
+            </Dialog.Overlay>
             <Dialog.Content
               forceMount
               asChild
               className={clsx(
                 'fixed z-50',
-                'h-full w-[95vw] max-w-md p-4 md:w-full',
+                'h-full w-[85vw] max-w-md p-4 md:w-full',
                 'left-0 top-0',
                 'bg-white dark:bg-gray-800',
                 'focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75'
               )}
             >
               <motion.div
-                initial={{ opacity: 0, left: '-50vw' }}
-                animate={{ opacity: 1, left: '0' }}
-                exit={{ opacity: 0, left: '-50vw' }}
-                transition={{ duration: 0.15 }}
+                initial={{ transform: 'translateX(-100%)' }}
+                animate={{ transform: 'translateX(0)' }}
+                exit={{ transform: 'translateX(-100%)' }}
+                transition={{ duration: 0.2 }}
               >
                 <MenuContent
                   onMenuItemClick={onMenuItemClick}
                   closeIconSlot={
                     <Dialog.Close asChild>
                       <button
-                        className="mb-2 rounded p-1 text-gray-600 hover:bg-gray-200 sm:hidden"
+                        className="mb-2 rounded p-1 text-gray-600 hover:bg-gray-200"
                         aria-label="Close menu"
                       >
                         <CloseIcon />

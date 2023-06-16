@@ -58,7 +58,7 @@ export function DialogMenu({
                 'fixed z-50',
                 'h-full w-[85vw] max-w-md p-4 md:w-full',
                 'left-0 top-0',
-                'bg-white dark:bg-gray-800',
+                'bg-white',
                 'focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75'
               )}
             >

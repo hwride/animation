@@ -3,7 +3,12 @@ import { useEffect, useState } from 'react'
 import { componentConfig, ConfigEntry } from './exampleConfig.ts'
 import { MenuProvider, useMenu } from './components/menu/MenuContext.tsx'
 import { Page } from './components/Page.tsx'
-import { Menu, MenuIcon, useResponsiveMenu } from './components/menu/Menu.tsx'
+import {
+  DesktopMenu,
+  DialogMenu,
+  MenuIcon,
+  useResponsiveMenu,
+} from './components/menu/Menu.tsx'
 import { clsx } from 'clsx'
 
 function getEgFromQueryParams() {
@@ -34,17 +39,17 @@ function App() {
   // Query params
   const { setIdQueryParamToExample } = useExampleQueryParams(setSelectedExample)
 
+  const onMenuItemClick = (example?: ConfigEntry) => {
+    setIdQueryParamToExample(example)
+    setSelectedExample(example)
+    // On tablet and above the menu never closes.
+    if (menuIsCloseable) setMenuVisible(false)
+  }
+
   return (
     <div className="grid h-full grid-cols-1 grid-rows-[auto_1fr] text-left sm:grid-cols-[auto_1fr] sm:grid-rows-1">
-      <MobileHeader />
-      <Menu
-        onMenuItemClick={(example?: ConfigEntry) => {
-          setIdQueryParamToExample(example)
-          setSelectedExample(example)
-          // On tablet and above the menu never closes.
-          if (menuIsCloseable) setMenuVisible(false)
-        }}
-      />
+      <MobileHeader onMenuItemClick={onMenuItemClick} />
+      <DesktopMenu onMenuItemClick={onMenuItemClick} />
       <div className="flex-1 overflow-auto">
         <ComponentToRender />
       </div>
@@ -52,20 +57,31 @@ function App() {
   )
 }
 
-function MobileHeader() {
+function MobileHeader({
+  onMenuItemClick,
+}: {
+  onMenuItemClick: (entry?: ConfigEntry) => void
+}) {
   const { menuVisible, setMenuVisible } = useMenu()
   return (
     <div className="border-b border-gray-200 p-1 sm:hidden">
-      <button
-        aria-label="Open menu"
-        className={clsx(
-          'ml-auto block rounded p-1 text-gray-600 hover:bg-gray-200',
-          menuVisible ? 'bg-gray-200 outline outline-1 outline-gray-300' : ''
-        )}
-        onClick={() => setMenuVisible(true)}
-      >
-        <MenuIcon />
-      </button>
+      <DialogMenu
+        onMenuItemClick={onMenuItemClick}
+        openButton={
+          <button
+            aria-label="Open menu"
+            className={clsx(
+              'ml-auto block rounded p-1 text-gray-600 hover:bg-gray-200',
+              menuVisible
+                ? 'bg-gray-200 outline outline-1 outline-gray-300'
+                : ''
+            )}
+            onClick={() => setMenuVisible(true)}
+          >
+            <MenuIcon />
+          </button>
+        }
+      />
     </div>
   )
 }

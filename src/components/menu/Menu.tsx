@@ -12,19 +12,6 @@ import { Menu as MenuIcon, X as CloseIcon } from 'react-feather'
 export const menuCloseableBreakpoint = 'xs'
 export { MenuIcon }
 
-export function Menu({
-  onMenuItemClick,
-}: {
-  onMenuItemClick: (entry?: ConfigEntry) => void
-}) {
-  return (
-    <>
-      <DesktopMenu onMenuItemClick={onMenuItemClick} />
-      <DialogMenu onMenuItemClick={onMenuItemClick} />
-    </>
-  )
-}
-
 export function DesktopMenu({
   onMenuItemClick,
 }: {
@@ -37,10 +24,12 @@ export function DesktopMenu({
   )
 }
 
-function DialogMenu({
+export function DialogMenu({
   onMenuItemClick,
+  openButton,
 }: {
   onMenuItemClick: (entry?: ConfigEntry) => void
+  openButton: ReactNode
 }) {
   const { menuVisible, setMenuVisible } = useMenu()
 
@@ -49,6 +38,7 @@ function DialogMenu({
       open={menuVisible}
       onOpenChange={(open) => setMenuVisible(open)}
     >
+      <Dialog.Trigger asChild>{openButton}</Dialog.Trigger>
       <AnimatePresence>
         {menuVisible && (
           <Dialog.Portal forceMount>

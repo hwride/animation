@@ -3,6 +3,7 @@ import { DialogMenu, MenuIcon } from './Menu.tsx'
 import { useMenu } from './MenuContext.tsx'
 import { ConfigEntry } from '../../exampleConfig.ts'
 import { MotionIconButton } from '../IconButton.tsx'
+import { colours } from '../../utils/tailwind.ts'
 
 export function MenuButton({
   onMenuItemClick,
@@ -22,7 +23,9 @@ export function MenuButton({
           aria-label="Open menu"
           className={clsx(
             'ml-auto',
-            menuVisible ? 'bg-gray-200 shadow-[0_0_0_1px_#d1d5db]' : ''
+            menuVisible
+              ? `bg-gray-200 shadow-[0_0_0_1px_${colours.gray300}]`
+              : ''
           )}
           onClick={() => setMenuVisible(true)}
           animate={menuVisible ? { rotate: 180 } : undefined}

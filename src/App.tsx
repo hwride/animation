@@ -5,6 +5,7 @@ import { MenuProvider } from './components/menu/MenuContext.tsx'
 import { Page } from './components/Page.tsx'
 import { DesktopMenu, useResponsiveMenu } from './components/menu/Menu.tsx'
 import { MenuButton } from './components/menu/MenuButton.tsx'
+import { clsx } from 'clsx'
 
 function getEgFromQueryParams() {
   const urlParams = new URLSearchParams(window.location.search)
@@ -66,7 +67,13 @@ function MobileHeader({
   onMenuItemClick: (entry?: ConfigEntry) => void
 }) {
   return (
-    <div className="border-b border-gray-200 p-1 sm:hidden">
+    <div
+      className={clsx(
+        // Stops the rotating menu button causing scrollbars.
+        'overflow-hidden',
+        'border-b border-gray-200 p-1 sm:hidden'
+      )}
+    >
       <MenuButton
         selectedExampleId={selectedExampleId}
         onMenuItemClick={onMenuItemClick}

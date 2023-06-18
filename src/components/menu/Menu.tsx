@@ -8,6 +8,7 @@ import { ButtonHTMLAttributes, ReactNode } from 'react'
 import { useBreakpoint } from '../../utils/useBreakpoint.ts'
 import { Menu as MenuIcon, X as CloseIcon } from 'react-feather'
 import { Button } from '../Button.tsx'
+import { IconButton } from '../IconButton.tsx'
 
 export const menuCloseableBreakpoint = 'xs'
 export { MenuIcon }
@@ -80,12 +81,9 @@ export function DialogMenu({
                   selectedExampleId={selectedExampleId}
                   closeIconSlot={
                     <Dialog.Close asChild>
-                      <button
-                        className="mb-2 rounded p-1 text-gray-600 hover:bg-gray-200"
-                        aria-label="Close menu"
-                      >
+                      <IconButton aria-label="Close menu" className="mb-2">
                         <CloseIcon />
-                      </button>
+                      </IconButton>
                     </Dialog.Close>
                   }
                 />

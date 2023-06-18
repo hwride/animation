@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 import { clsx } from 'clsx'
-import { DialogMenu, MenuIcon, menuOpenDuration } from './Menu.tsx'
+import { DialogMenu, MenuIcon } from './Menu.tsx'
 import { useMenu } from './MenuContext.tsx'
 import { ConfigEntry } from '../../exampleConfig.ts'
 

@@ -1,16 +1,9 @@
 import './App.css'
 import { useEffect, useState } from 'react'
 import { componentConfig, ConfigEntry } from './exampleConfig.ts'
-import { MenuProvider, useMenu } from './components/menu/MenuContext.tsx'
+import { MenuProvider } from './components/menu/MenuContext.tsx'
 import { Page } from './components/Page.tsx'
-import {
-  DesktopMenu,
-  DialogMenu,
-  MenuIcon,
-  useResponsiveMenu,
-} from './components/menu/Menu.tsx'
-import { clsx } from 'clsx'
-import { motion } from 'framer-motion'
+import { DesktopMenu, useResponsiveMenu } from './components/menu/Menu.tsx'
 import { MenuButton } from './components/menu/MenuButton.tsx'
 
 function getEgFromQueryParams() {

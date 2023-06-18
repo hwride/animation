@@ -52,8 +52,8 @@ export function VariantsOrchestration() {
       </div>
 
       <H3>Controls</H3>
-      <div className="m-auto mb-4 mt-2 w-min">
-        <div className="mx-auto grid w-max grid-cols-2">
+      <div className="mx-auto mb-4 mt-2 w-fit">
+        <div className="grid grid-cols-2">
           <label htmlFor="when">
             <code>when</code>
           </label>
@@ -82,7 +82,9 @@ export function VariantsOrchestration() {
         <Button className="mx-auto my-2 block" onClick={rerender}>
           Re-mount component
         </Button>
+      </div>
 
+      <div className="m-auto mb-4 mt-2 w-fit">
         <H3>Animation</H3>
         <div className="m-auto mb-4 mt-2 w-min" key={key}>
           <motion.div

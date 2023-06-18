@@ -48,7 +48,7 @@ export function SVGAnimate() {
             {'variants: ' + JSON.stringify(drawVariants, null, 2)}
           </CodeSample>
         </div>
-        <div className="mx-auto grid w-max grid-cols-2">
+        <div className="mx-auto grid w-fit grid-cols-2">
           <PathRangeInput
             id="path-length"
             label={<code>pathLength</code>}

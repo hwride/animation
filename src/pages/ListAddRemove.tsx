@@ -33,7 +33,7 @@ export function ListAddRemove() {
       </PageParagraph>
 
       <H3>Controls</H3>
-      <div className="mx-auto grid w-max grid-cols-2 gap-2">
+      <div className="mx-auto grid w-fit grid-cols-2 gap-2">
         <label htmlFor="transitionType">
           <code>transition.type</code>
         </label>

@@ -9,6 +9,7 @@ import { Button } from '../Button.tsx'
 import { useBreakpoint } from '../../utils/useBreakpoint.ts'
 import { Menu as MenuIcon, X as CloseIcon } from 'react-feather'
 
+export const menuOpenDuration = 0.2
 export const menuCloseableBreakpoint = 'xs'
 export { MenuIcon }
 
@@ -66,7 +67,7 @@ export function DialogMenu({
                 initial={{ transform: 'translateX(-100%)' }}
                 animate={{ transform: 'translateX(0)' }}
                 exit={{ transform: 'translateX(-100%)' }}
-                transition={{ duration: 0.2 }}
+                transition={{ duration: menuOpenDuration }}
               >
                 <MenuContent
                   onMenuItemClick={onMenuItemClick}

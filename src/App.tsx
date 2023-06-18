@@ -10,6 +10,8 @@ import {
   useResponsiveMenu,
 } from './components/menu/Menu.tsx'
 import { clsx } from 'clsx'
+import { motion } from 'framer-motion'
+import { MenuButton } from './components/menu/MenuButton.tsx'
 
 function getEgFromQueryParams() {
   const urlParams = new URLSearchParams(window.location.search)
@@ -62,26 +64,9 @@ function MobileHeader({
 }: {
   onMenuItemClick: (entry?: ConfigEntry) => void
 }) {
-  const { menuVisible, setMenuVisible } = useMenu()
   return (
     <div className="border-b border-gray-200 p-1 sm:hidden">
-      <DialogMenu
-        onMenuItemClick={onMenuItemClick}
-        openButton={
-          <button
-            aria-label="Open menu"
-            className={clsx(
-              'ml-auto block rounded p-1 text-gray-600 hover:bg-gray-200',
-              menuVisible
-                ? 'bg-gray-200 outline outline-1 outline-gray-300'
-                : ''
-            )}
-            onClick={() => setMenuVisible(true)}
-          >
-            <MenuIcon />
-          </button>
-        }
-      />
+      <MenuButton onMenuItemClick={onMenuItemClick} />
     </div>
   )
 }

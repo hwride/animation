@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 import { useState } from 'react'
-import { Button } from '../components/Button.tsx'
+import { BorderButton } from '../components/Button.tsx'
 import { Page } from '../components/Page.tsx'
 import { PageParagraph } from '../components/PageParagraph.tsx'
 import { CodeSample } from '../components/CodeSample.tsx'
@@ -39,12 +39,12 @@ return <>
       </div>
 
       <div className="m-auto mb-4 mt-2 w-fit">
-        <Button
+        <BorderButton
           className="mx-auto mb-2 block"
           onClick={() => setAnimate((animate) => !animate)}
         >
           Toggle animation
-        </Button>
+        </BorderButton>
         <motion.div
           className="mx-auto bg-blue-400"
           initial={{

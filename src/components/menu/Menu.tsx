@@ -7,6 +7,7 @@ import { Link } from '../Link.tsx'
 import { ButtonHTMLAttributes, ReactNode } from 'react'
 import { useBreakpoint } from '../../utils/useBreakpoint.ts'
 import { Menu as MenuIcon, X as CloseIcon } from 'react-feather'
+import { Button } from '../Button.tsx'
 
 export const menuCloseableBreakpoint = 'xs'
 export { MenuIcon }
@@ -139,9 +140,9 @@ function ListButton({
   ...rest
 }: ButtonHTMLAttributes<HTMLButtonElement> & { children: ReactNode }) {
   return (
-    <button className={clsx('px-2 hover:bg-gray-100', className)} {...rest}>
+    <Button className={className} {...rest}>
       {children}
-    </button>
+    </Button>
   )
 }
 

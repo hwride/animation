@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 import { useState } from 'react'
-import { Button } from '../components/Button.tsx'
+import { BorderButton } from '../components/Button.tsx'
 import { Link } from '../components/Link.tsx'
 import { Page } from '../components/Page.tsx'
 import { PageParagraph } from '../components/PageParagraph.tsx'
@@ -79,9 +79,9 @@ export function VariantsOrchestration() {
           />
         </div>
 
-        <Button className="mx-auto my-2 block" onClick={rerender}>
+        <BorderButton className="mx-auto my-2 block" onClick={rerender}>
           Re-mount component
-        </Button>
+        </BorderButton>
       </div>
 
       <div className="m-auto mb-4 mt-2 w-fit">

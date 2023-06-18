@@ -1,6 +1,6 @@
 import { AnimatePresence, motion } from 'framer-motion'
 import { useState } from 'react'
-import { Button } from '../components/Button.tsx'
+import { BorderButton } from '../components/Button.tsx'
 import { Link } from '../components/Link.tsx'
 import { Page } from '../components/Page.tsx'
 import { PageParagraph } from '../components/PageParagraph.tsx'
@@ -25,12 +25,12 @@ export function EnterExit() {
         keeps the element around until the exit animation completes.
       </PageParagraph>
 
-      <Button
+      <BorderButton
         className="mx-auto block"
         onClick={() => setVisible((visible) => !visible)}
       >
         Toggle visible
-      </Button>
+      </BorderButton>
 
       <div className="mx-auto my-4 w-fit">
         <AnimatePresence>

@@ -4,7 +4,7 @@ import { H3 } from '../components/Headings.tsx'
 import { Page } from '../components/Page.tsx'
 import { CodeSample } from '../components/CodeSample.tsx'
 import { useRerender } from '../utils/useRerender.ts'
-import { Button } from '../components/Button.tsx'
+import { BorderButton } from '../components/Button.tsx'
 
 export function SimpleAnimate() {
   return (
@@ -67,9 +67,9 @@ function ColourAnimation() {
   animate={{ backgroundColor: ${animateColourVal} }} />`}
         </CodeSample>
       </div>
-      <Button className="mx-auto my-2 block" onClick={rerender}>
+      <BorderButton className="mx-auto my-2 block" onClick={rerender}>
         Re-mount component
-      </Button>
+      </BorderButton>
       <div className="m-auto w-min" key={key}>
         <motion.div
           className="h-20 w-20 p-4"

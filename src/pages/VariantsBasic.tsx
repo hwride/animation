@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { Button } from '../components/Button.tsx'
+import { BorderButton } from '../components/Button.tsx'
 import { Link } from '../components/Link.tsx'
 import { Page } from '../components/Page.tsx'
 import { PageParagraph } from '../components/PageParagraph.tsx'
@@ -46,9 +46,9 @@ export function VariantsBasic() {
         <CodeSample language="jsx">{codeStr}</CodeSample>
       </div>
 
-      <Button className="mx-auto mt-2 block" onClick={rerender}>
+      <BorderButton className="mx-auto mt-2 block" onClick={rerender}>
         Re-mount component
-      </Button>
+      </BorderButton>
       <div className="m-auto mb-4 mt-4 w-min" key={key}>
         <motion.div
           className="w-[200px] bg-blue-400"

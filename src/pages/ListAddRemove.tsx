@@ -1,6 +1,6 @@
 import { AnimatePresence, motion } from 'framer-motion'
 import { InputHTMLAttributes, ReactNode, useState } from 'react'
-import { Button } from '../components/Button.tsx'
+import { BorderButton } from '../components/Button.tsx'
 import { Page } from '../components/Page.tsx'
 import { PageParagraph } from '../components/PageParagraph.tsx'
 import { H3 } from '../components/Headings.tsx'
@@ -75,7 +75,7 @@ export function ListAddRemove() {
           value={opacityDuration}
         />
       </div>
-      <Button
+      <BorderButton
         className="mx-auto mt-2 block"
         onClick={() => {
           setListItems((listItems) =>
@@ -85,7 +85,7 @@ export function ListAddRemove() {
         }}
       >
         Add item
-      </Button>
+      </BorderButton>
 
       <div className="m-auto mb-4 mt-4 w-fit">
         <ul>
@@ -108,7 +108,7 @@ export function ListAddRemove() {
                 >
                   <div className="mb-1 flex w-80 justify-between rounded border border-gray-300 bg-blue-200 p-1">
                     {li.label}
-                    <Button
+                    <BorderButton
                       className="ml-auto inline-block border-gray-200 bg-white text-black"
                       onClick={() =>
                         setListItems((lis) =>
@@ -117,7 +117,7 @@ export function ListAddRemove() {
                       }
                     >
                       Remove
-                    </Button>
+                    </BorderButton>
                   </div>
                 </motion.li>
               )

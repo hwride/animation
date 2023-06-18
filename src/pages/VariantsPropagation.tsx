@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 import { useState } from 'react'
-import { Button } from '../components/Button.tsx'
+import { BorderButton } from '../components/Button.tsx'
 import { Link } from '../components/Link.tsx'
 import { Page } from '../components/Page.tsx'
 import { PageParagraph } from '../components/PageParagraph.tsx'
@@ -76,12 +76,12 @@ const grandChildVariants = {
       </div>
 
       <div className="m-auto mb-4 mt-2 w-min" key={key}>
-        <Button
+        <BorderButton
           className="mx-auto mb-2 block"
           onClick={() => setKey((key) => key + 1)}
         >
           Re-mount component
-        </Button>
+        </BorderButton>
         <motion.div
           className="mx-auto flex h-[200px] w-[200px] items-center justify-center bg-red-400"
           initial="start"

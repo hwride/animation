@@ -116,14 +116,19 @@ function MenuContent({
       <ol className="m-0 flex-1 list-none">
         {componentConfig.map((entry, i) => {
           return (
-            <li key={i} className="relative">
+            <motion.li
+              key={i}
+              className="relative"
+              initial={{}}
+              whileHover={{ scale: 1.05 }}
+            >
               <ListButton
                 className="w-full"
                 onClick={() => onMenuItemClick(entry)}
               >
                 {entry.label}
               </ListButton>
-            </li>
+            </motion.li>
           )
         })}
       </ol>

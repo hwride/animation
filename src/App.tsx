@@ -3,7 +3,11 @@ import { useEffect, useState } from 'react'
 import { componentConfig, ConfigEntry } from './exampleConfig.ts'
 import { MenuProvider } from './components/menu/MenuContext.tsx'
 import { Page } from './components/Page.tsx'
-import { DesktopMenu, useResponsiveMenu } from './components/menu/Menu.tsx'
+import {
+  DesktopMenu,
+  DialogMenu,
+  useResponsiveMenu,
+} from './components/menu/Menu.tsx'
 import { MenuButton } from './components/menu/MenuButton.tsx'
 
 function getEgFromQueryParams() {
@@ -59,7 +63,10 @@ function MobileHeader({
 }) {
   return (
     <div className="border-b border-gray-200 p-1 sm:hidden">
-      <MenuButton onMenuItemClick={onMenuItemClick} />
+      <DialogMenu
+        onMenuItemClick={onMenuItemClick}
+        openButton={<MenuButton />}
+      />
     </div>
   )
 }

@@ -98,7 +98,7 @@ function MenuContent({
   closeIconSlot?: ReactNode
 }) {
   return (
-    <>
+    <nav>
       <div className="flex items-start justify-between">
         <h2 className="my-2 self-end text-lg font-bold">
           <Link
@@ -126,7 +126,7 @@ function MenuContent({
           )
         })}
       </ol>
-    </>
+    </nav>
   )
 }
 

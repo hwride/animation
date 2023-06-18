@@ -41,8 +41,13 @@ export function SVGAnimate() {
 
   return (
     <Page title="SVG animation" className="svg-animate">
-      <div>
+      <div className="mb-2">
         <H3>Options</H3>
+        <div className="mx-auto w-fit">
+          <CodeSample language="jsx">
+            {'variants: ' + JSON.stringify(drawVariants, null, 2)}
+          </CodeSample>
+        </div>
         <div className="mx-auto grid w-max grid-cols-2">
           <PathRangeInput
             id="path-length"
@@ -82,11 +87,6 @@ export function SVGAnimate() {
               reRenderSvg()
             }}
           />
-        </div>
-        <div className="mx-auto w-fit">
-          <CodeSample language="jsx">
-            {'variants: ' + JSON.stringify(drawVariants, null, 2)}
-          </CodeSample>
         </div>
       </div>
 

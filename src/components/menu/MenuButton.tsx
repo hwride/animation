@@ -22,7 +22,7 @@ export function MenuButton({
           aria-label="Open menu"
           className={clsx(
             'ml-auto',
-            menuVisible ? 'bg-gray-200 outline outline-1 outline-gray-300' : ''
+            menuVisible ? 'bg-gray-200 shadow-[0_0_0_1px_#d1d5db]' : ''
           )}
           onClick={() => setMenuVisible(true)}
           animate={menuVisible ? { rotate: 180 } : undefined}

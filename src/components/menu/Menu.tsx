@@ -13,21 +13,28 @@ export const menuCloseableBreakpoint = 'xs'
 export { MenuIcon }
 
 export function DesktopMenu({
+  selectedExampleId,
   onMenuItemClick,
 }: {
+  selectedExampleId?: string
   onMenuItemClick: (entry?: ConfigEntry) => void
 }) {
   return (
     <div className="hidden border-r border-gray-800 p-4 sm:block">
-      <MenuContent onMenuItemClick={onMenuItemClick} />
+      <MenuContent
+        selectedExampleId={selectedExampleId}
+        onMenuItemClick={onMenuItemClick}
+      />
     </div>
   )
 }
 
 export function DialogMenu({
+  selectedExampleId,
   onMenuItemClick,
   openButton,
 }: {
+  selectedExampleId?: string
   onMenuItemClick: (entry?: ConfigEntry) => void
   openButton: ReactNode
 }) {
@@ -70,6 +77,7 @@ export function DialogMenu({
               >
                 <MenuContent
                   onMenuItemClick={onMenuItemClick}
+                  selectedExampleId={selectedExampleId}
                   closeIconSlot={
                     <Dialog.Close asChild>
                       <button
@@ -92,9 +100,11 @@ export function DialogMenu({
 
 function MenuContent({
   onMenuItemClick,
+  selectedExampleId,
   closeIconSlot,
 }: {
   onMenuItemClick: (entry?: ConfigEntry) => void
+  selectedExampleId?: string
   closeIconSlot?: ReactNode
 }) {
   return (
@@ -113,11 +123,13 @@ function MenuContent({
         {closeIconSlot}
       </div>
       <ol className="m-0 flex-1 list-none">
-        {componentConfig.map((entry, i) => {
+        {componentConfig.map((entry) => {
+          const isCurrentEg = selectedExampleId === entry.id
           return (
             <motion.li
-              key={i}
-              className="relative"
+              key={entry.id}
+              className={clsx('relative', isCurrentEg ? 'bg-blue-50' : '')}
+              aria-current={isCurrentEg ? 'page' : undefined}
               whileHover={{ scale: 1.04, transition: { duration: 0.05 } }}
             >
               <ListButton

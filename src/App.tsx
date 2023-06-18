@@ -47,8 +47,14 @@ function App() {
 
   return (
     <div className="grid h-full grid-cols-1 grid-rows-[auto_1fr] text-left sm:grid-cols-[auto_1fr] sm:grid-rows-1">
-      <MobileHeader onMenuItemClick={onMenuItemClick} />
-      <DesktopMenu onMenuItemClick={onMenuItemClick} />
+      <MobileHeader
+        selectedExampleId={selectedExample?.id}
+        onMenuItemClick={onMenuItemClick}
+      />
+      <DesktopMenu
+        selectedExampleId={selectedExample?.id}
+        onMenuItemClick={onMenuItemClick}
+      />
       <div className="flex-1 overflow-auto">
         <ComponentToRender />
       </div>
@@ -57,13 +63,16 @@ function App() {
 }
 
 function MobileHeader({
+  selectedExampleId,
   onMenuItemClick,
 }: {
+  selectedExampleId?: string
   onMenuItemClick: (entry?: ConfigEntry) => void
 }) {
   return (
     <div className="border-b border-gray-200 p-1 sm:hidden">
       <DialogMenu
+        selectedExampleId={selectedExampleId}
         onMenuItemClick={onMenuItemClick}
         openButton={<MenuButton />}
       />

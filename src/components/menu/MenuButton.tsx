@@ -2,7 +2,6 @@ import { motion } from 'framer-motion'
 import { clsx } from 'clsx'
 import { DialogMenu, MenuIcon } from './Menu.tsx'
 import { useMenu } from './MenuContext.tsx'
-import { ConfigEntry } from '../../exampleConfig.ts'
 
 export function MenuButton() {
   const { menuVisible, setMenuVisible } = useMenu()

@@ -5,11 +5,9 @@ import { AnimatePresence, motion } from 'framer-motion'
 import { clsx } from '../../utils/clsx.ts'
 import { Link } from '../Link.tsx'
 import { ButtonHTMLAttributes, ReactNode } from 'react'
-import { Button } from '../Button.tsx'
 import { useBreakpoint } from '../../utils/useBreakpoint.ts'
 import { Menu as MenuIcon, X as CloseIcon } from 'react-feather'
 
-export const menuOpenDuration = 0.2
 export const menuCloseableBreakpoint = 'xs'
 export { MenuIcon }
 
@@ -67,7 +65,7 @@ export function DialogMenu({
                 initial={{ transform: 'translateX(-100%)' }}
                 animate={{ transform: 'translateX(0)' }}
                 exit={{ transform: 'translateX(-100%)' }}
-                transition={{ duration: menuOpenDuration }}
+                transition={{ duration: 0.2 }}
               >
                 <MenuContent
                   onMenuItemClick={onMenuItemClick}
@@ -142,15 +140,9 @@ function ListButton({
   ...rest
 }: ButtonHTMLAttributes<HTMLButtonElement> & { children: ReactNode }) {
   return (
-    <Button
-      className={clsx(
-        'mb-1 rounded border border-black hover:bg-gray-100',
-        className
-      )}
-      {...rest}
-    >
+    <button className={clsx('px-2 hover:bg-gray-100', className)} {...rest}>
       {children}
-    </Button>
+    </button>
   )
 }
 

@@ -13,7 +13,7 @@ export function LayoutList() {
   const [transitionType, setTransitionType] = useState('tween')
 
   return (
-    <Page title="LayoutList">
+    <Page title="Layout list">
       <PageParagraph>
         You can use{' '}
         <Link

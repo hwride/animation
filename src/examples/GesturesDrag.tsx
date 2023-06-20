@@ -5,7 +5,7 @@ import {
   SelectHTMLAttributes,
   useState,
 } from 'react'
-import { CenteredCodeSample } from '../components/CodeSample.tsx'
+import { CodeSample } from '../components/CodeSample.tsx'
 import { H3 } from '../components/Headings.tsx'
 import { Link } from '../components/Link.tsx'
 import { Page } from '../components/Page.tsx'
@@ -166,7 +166,14 @@ export function GesturesDrag() {
         dragElastic={dragElastic}
         dragMomentum={dragMomentum}
       >
-        <CenteredCodeSample language="jsx">{`<motion.div 
+        <CodeSample
+          customStyle={{
+            // The code sample was interfering with the drag on mobile.
+            // Fixed this by disabling pointer events on it.
+            pointerEvents: 'none',
+          }}
+          language="jsx"
+        >{`<motion.div 
   drag={${drag}}
   dragConstraints={{
     top: ${dragConstraintTop},
@@ -177,7 +184,7 @@ export function GesturesDrag() {
   dragSnapToOrigin={${dragSnapToOrigin}}
   dragElastic={${dragElastic}}
   dragMomentum={${dragMomentum}}
-/>`}</CenteredCodeSample>
+/>`}</CodeSample>
       </motion.div>
     </Page>
   )

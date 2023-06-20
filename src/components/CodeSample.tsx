@@ -22,7 +22,7 @@ export function CenteredCodeSample({
   ...rest
 }: SyntaxHighlighterProps) {
   return (
-    <div className={clsx('m-auto w-fit max-w-full', className)}>
+    <div className={clsx('max-w-full m-auto w-fit', className)}>
       <CodeSample {...rest} />
     </div>
   )

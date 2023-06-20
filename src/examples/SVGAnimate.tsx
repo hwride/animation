@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import { ReactNode, useState } from 'react'
 import { CenteredCodeSample } from '../components/CodeSample.tsx'
+import { ControlGrid } from '../components/ControlGrid.tsx'
 import { H2, H3 } from '../components/Headings.tsx'
 import { Page } from '../components/Page.tsx'
 import { TextInput } from '../components/TextInput.tsx'
@@ -43,10 +44,10 @@ export function SVGAnimate() {
     <Page title="SVG animation" className="svg-animate">
       <div className="mb-2">
         <H3>Options</H3>
-        <CenteredCodeSample language="jsx">
+        <CenteredCodeSample language="jsx" className="min-w-[240px]">
           {'variants: ' + JSON.stringify(drawVariants, null, 2)}
         </CenteredCodeSample>
-        <div className="mx-auto grid w-fit grid-cols-2">
+        <ControlGrid>
           <PathRangeInput
             id="path-length"
             label={<code>pathLength</code>}
@@ -85,7 +86,7 @@ export function SVGAnimate() {
               reRenderSvg()
             }}
           />
-        </div>
+        </ControlGrid>
       </div>
 
       <H2>SVG</H2>

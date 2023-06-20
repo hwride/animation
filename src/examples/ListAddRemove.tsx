@@ -1,11 +1,13 @@
 import { AnimatePresence, motion } from 'framer-motion'
-import { InputHTMLAttributes, ReactNode, useState } from 'react'
+import { useState } from 'react'
 import { BorderButton } from '../components/Button.tsx'
 import { CenteredCodeSample } from '../components/CodeSample.tsx'
+import { ControlGrid } from '../components/ControlGrid.tsx'
 import { H3 } from '../components/Headings.tsx'
+import { LabelledNumberInput } from '../components/LabelledNumberInput.tsx'
+import { LabelledSelect } from '../components/LabelledSelect.tsx'
 import { Page } from '../components/Page.tsx'
 import { PageParagraph } from '../components/PageParagraph.tsx'
-import { TextInput } from '../components/TextInput.tsx'
 
 export function ListAddRemove() {
   const [i, setI] = useState(4)
@@ -14,8 +16,8 @@ export function ListAddRemove() {
     { id: 2, label: 'List item ' + 2 },
     { id: 3, label: 'List item ' + 3 },
   ])
-  const [duration, setDuration] = useState('.5')
-  const [opacityDuration, setOpacityDuration] = useState('.2')
+  const [duration, setDuration] = useState(0.5)
+  const [opacityDuration, setOpacityDuration] = useState(0.2)
   const [transitionType, setTransitionType] = useState('spring')
 
   return (
@@ -33,22 +35,20 @@ export function ListAddRemove() {
       </PageParagraph>
 
       <H3>Controls</H3>
-      <div className="mx-auto grid w-fit grid-cols-2 gap-2">
-        <label htmlFor="transitionType">
-          <code>transition.type</code>
-        </label>
-        <select
-          className="border border-gray-100 font-mono"
+      <ControlGrid>
+        <LabelledSelect
+          id="transitionType"
+          label={<code>transition.type</code>}
+          selectClassName="font-mono"
           value={transitionType}
-          onChange={(e) => setTransitionType(e.target.value)}
+          onOptionChange={setTransitionType}
         >
           <option value="spring">spring</option>
           <option value="tween">tween</option>
-        </select>
+        </LabelledSelect>
 
-        <LabelledTextInput
+        <LabelledNumberInput
           id="duration"
-          type="number"
           min={0}
           step={0.05}
           max={20}
@@ -57,10 +57,10 @@ export function ListAddRemove() {
               <code>duration</code> (ms)
             </>
           }
-          onChangeValue={setDuration}
+          onNumChange={setDuration}
           value={duration}
         />
-        <LabelledTextInput
+        <LabelledNumberInput
           id="opacityDuration"
           type="number"
           min={0}
@@ -71,10 +71,10 @@ export function ListAddRemove() {
               <code>opacity.duration</code> (ms)
             </>
           }
-          onChangeValue={setOpacityDuration}
+          onNumChange={setOpacityDuration}
           value={opacityDuration}
         />
-      </div>
+      </ControlGrid>
       <BorderButton
         className="mx-auto mt-2 block"
         onClick={() => {
@@ -102,8 +102,8 @@ export function ListAddRemove() {
                   exit={{ opacity: 0, height: 0 }}
                   transition={{
                     type: transitionType,
-                    duration: Number(duration),
-                    opacity: { duration: 0.1 },
+                    duration: duration,
+                    opacity: { duration: opacityDuration },
                   }}
                 >
                   <div className="mb-1 flex w-80 justify-between rounded border border-gray-300 bg-blue-200 p-1">
@@ -152,28 +152,5 @@ export function ListAddRemove() {
 </ul>`}
       </CenteredCodeSample>
     </Page>
-  )
-}
-
-function LabelledTextInput({
-  id,
-  label,
-  onChangeValue,
-  ...rest
-}: {
-  id: string
-  label: ReactNode
-  onChangeValue: (v: string) => void
-} & InputHTMLAttributes<HTMLInputElement>) {
-  return (
-    <>
-      <label htmlFor={id}>{label}</label>
-      <TextInput
-        id={id}
-        type="number"
-        {...rest}
-        onChange={(e) => onChangeValue(e.target.value)}
-      />
-    </>
   )
 }

@@ -1,17 +1,15 @@
 import { clsx } from 'clsx'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import './App.css'
 import { Page } from './components/Page.tsx'
 import { DesktopMenu, useResponsiveMenu } from './components/menu/Menu.tsx'
 import { MenuButton } from './components/menu/MenuButton.tsx'
 import { MenuProvider } from './components/menu/MenuContext.tsx'
-import { ConfigEntry, componentConfig } from './exampleConfig.ts'
-
-function getEgFromQueryParams() {
-  const urlParams = new URLSearchParams(window.location.search)
-  const id = urlParams.get('id')
-  return id ? componentConfig.find((example) => example.id === id) : undefined
-}
+import { ConfigEntry } from './exampleConfig.ts'
+import {
+  getExampleFromQueryParams,
+  useExampleQueryParams,
+} from './queryParams.ts'
 
 function AppWithProviders() {
   return (
@@ -25,7 +23,7 @@ function App() {
   // Selected example
   const [selectedExample, setSelectedExample] = useState<
     ConfigEntry | undefined
-  >(getEgFromQueryParams)
+  >(getExampleFromQueryParams)
   const ComponentToRender: React.FC =
     selectedExample?.Component ?? EmptyComponent
 
@@ -80,33 +78,6 @@ function MobileHeader({
       />
     </div>
   )
-}
-
-/**
- * Helper for example ID query param changes. Listens for changes and updates
- * selected examples, and provides helper to set the query param.
- */
-function useExampleQueryParams(
-  setSelectedExample: (eg: ConfigEntry | undefined) => void
-) {
-  // Listen for changes in query params with the forward/back buttons.
-  useEffect(() => {
-    const popstateListener = () => setSelectedExample(getEgFromQueryParams())
-    window.addEventListener('popstate', popstateListener)
-    return () => window.removeEventListener('popstate', popstateListener)
-  }, [setSelectedExample])
-
-  return {
-    setIdQueryParamToExample: (example?: ConfigEntry) => {
-      const urlParams = new URLSearchParams(window.location.search)
-      if (example) {
-        urlParams.set('id', example.id)
-      } else {
-        urlParams.delete('id')
-      }
-      window.history.pushState({}, '', '?' + urlParams.toString())
-    },
-  }
 }
 
 function EmptyComponent() {

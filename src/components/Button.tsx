@@ -1,15 +1,21 @@
 import { clsx } from 'clsx'
-import { ButtonHTMLAttributes } from 'react'
+import { HTMLMotionProps, motion } from 'framer-motion'
 
 export function Button({
   className,
   children,
   ...rest
-}: ButtonHTMLAttributes<HTMLButtonElement>) {
+}: HTMLMotionProps<'button'>) {
   return (
-    <button className={clsx(className, 'px-2 hover:bg-gray-100')} {...rest}>
+    <motion.button
+      whileTap={{
+        scale: 0.9,
+      }}
+      className={clsx(className, 'px-2 hover:bg-gray-100')}
+      {...rest}
+    >
       {children}
-    </button>
+    </motion.button>
   )
 }
 
@@ -17,7 +23,7 @@ export function BorderButton({
   className,
   children,
   ...rest
-}: ButtonHTMLAttributes<HTMLButtonElement>) {
+}: HTMLMotionProps<'button'>) {
   return (
     <Button
       className={clsx(className, 'rounded border border-black')}

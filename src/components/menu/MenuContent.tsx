@@ -42,6 +42,7 @@ export function MenuContent({
               className={clsx('relative', isCurrentEg ? 'bg-blue-50' : '')}
               aria-current={isCurrentEg ? 'page' : undefined}
               whileHover={{ scale: 1.04, transition: { duration: 0.05 } }}
+              whileTap={{ scale: 0.9 }}
             >
               <ListButton
                 className="w-full"

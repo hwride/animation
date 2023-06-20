@@ -1,4 +1,6 @@
 import { EnterExit } from './examples/EnterExit.tsx'
+import { Gestures } from './examples/Gestures.tsx'
+import { GesturesPropagation } from './examples/GesturesPropagation.tsx'
 import { Keyframes } from './examples/Keyframes.tsx'
 import { ListAddRemove } from './examples/ListAddRemove.tsx'
 import { SVGAnimate } from './examples/SVGAnimate.tsx'
@@ -44,6 +46,16 @@ export const componentConfig: ConfigEntry[] = [
     id: 'trigger_animation',
     label: 'Trigger animation',
     Component: TriggerAnimation,
+  },
+  {
+    id: 'gestures',
+    label: 'Gestures',
+    Component: Gestures,
+  },
+  {
+    id: 'gestures_propagation',
+    label: 'Gestures propagation',
+    Component: GesturesPropagation,
   },
   {
     id: 'list_add_remove',

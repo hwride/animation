@@ -1,5 +1,6 @@
 import { EnterExit } from './examples/EnterExit.tsx'
 import { Gestures } from './examples/Gestures.tsx'
+import { GesturesDrag } from './examples/GesturesDrag.tsx'
 import { GesturesPropagation } from './examples/GesturesPropagation.tsx'
 import { Keyframes } from './examples/Keyframes.tsx'
 import { ListAddRemove } from './examples/ListAddRemove.tsx'
@@ -56,6 +57,11 @@ export const componentConfig: ConfigEntry[] = [
     id: 'gestures_propagation',
     label: 'Gestures propagation',
     Component: GesturesPropagation,
+  },
+  {
+    id: 'gestures_drag',
+    label: 'Gestures drag',
+    Component: GesturesDrag,
   },
   {
     id: 'list_add_remove',

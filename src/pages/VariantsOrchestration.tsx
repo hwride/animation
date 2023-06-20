@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion'
 import { useState } from 'react'
 import { BorderButton } from '../components/Button.tsx'
-import { CodeSample } from '../components/CodeSample.tsx'
+import { CenteredCodeSample } from '../components/CodeSample.tsx'
 import { H3 } from '../components/Headings.tsx'
 import { Link } from '../components/Link.tsx'
 import { Page } from '../components/Page.tsx'
@@ -47,9 +47,7 @@ export function VariantsOrchestration() {
         or staggering children.
       </PageParagraph>
 
-      <div className="mx-auto w-fit">
-        <Code />
-      </div>
+      <Code />
 
       <H3>Controls</H3>
       <div className="mx-auto mb-4 mt-2 w-fit">
@@ -110,7 +108,7 @@ export function VariantsOrchestration() {
 
 function Code() {
   return (
-    <CodeSample language="jsx" wrapLongLines={true}>
+    <CenteredCodeSample language="jsx">
       {`const parentVariants = {
   start: {
     backgroundColor: '#60a5fa', // Blue
@@ -118,10 +116,11 @@ function Code() {
   end: {
     backgroundColor: '#f87171', // Red
     transition: {
-      // This delays the child animations until the parent's is complete.
+      // This delays the child animations 
+      // until the parent's is complete.
       when: 'afterChildren',
-      // This staggers the start of the child animation by .5s between
-      // each child.
+      // This staggers the start of the child 
+      // animations by .5s between each child.
       staggerChildren: 0.5,
     },
   },
@@ -141,6 +140,6 @@ const childVariants = {
   <motion.div variants={childVariants} />
   <motion.div variants={childVariants} />
 </motion.div>`}
-    </CodeSample>
+    </CenteredCodeSample>
   )
 }

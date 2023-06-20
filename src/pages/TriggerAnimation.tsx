@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion'
 import { useState } from 'react'
 import { BorderButton } from '../components/Button.tsx'
-import { CodeSample } from '../components/CodeSample.tsx'
+import { CenteredCodeSample } from '../components/CodeSample.tsx'
 import { Page } from '../components/Page.tsx'
 import { PageParagraph } from '../components/PageParagraph.tsx'
 
@@ -15,28 +15,24 @@ export function TriggerAnimation() {
         rather than on component mount.
       </PageParagraph>
 
-      <div className="mx-auto w-fit">
-        <CodeSample language="jsx">
-          {`const [animate, setAnimate] = useState(false)
+      <CenteredCodeSample language="jsx">
+        {`const [animate, setAnimate] = 
+  useState(false)
 
 return <>
   <motion.div
-    initial={{ 
-      width: 50,
-      height: 50 
-    }}
-    animate={ animate ? { 
-      width: 200, 
-      height: 200 
-    } : undefined }
+    initial={{ width: 50, height: 50 }}
+    animate={ animate ? 
+      { width: 200, height: 200 } : 
+      undefined 
+    }
   />
   <button onClick={() => 
-      setAnimate(animate => !animate)}>
+    setAnimate(animate => !animate)}>
     Toggle animation
   </button>
 </>`}
-        </CodeSample>
-      </div>
+      </CenteredCodeSample>
 
       <div className="m-auto mb-4 mt-2 w-fit">
         <BorderButton

@@ -1,3 +1,4 @@
+import { clsx } from 'clsx'
 import {
   PrismLight as SyntaxHighlighter,
   SyntaxHighlighterProps,
@@ -16,10 +17,13 @@ export function CodeSample({ children, ...overrides }: SyntaxHighlighterProps) {
   )
 }
 
-export function CenteredCodeSample(props: SyntaxHighlighterProps) {
+export function CenteredCodeSample({
+  className,
+  ...rest
+}: SyntaxHighlighterProps) {
   return (
-    <div className="m-auto w-fit max-w-full">
-      <CodeSample {...props} />
+    <div className={clsx('m-auto w-fit max-w-full', className)}>
+      <CodeSample {...rest} />
     </div>
   )
 }

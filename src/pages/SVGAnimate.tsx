@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 import { ReactNode, useState } from 'react'
-import { CodeSample } from '../components/CodeSample.tsx'
+import { CenteredCodeSample } from '../components/CodeSample.tsx'
 import { H2, H3 } from '../components/Headings.tsx'
 import { Page } from '../components/Page.tsx'
 import { TextInput } from '../components/TextInput.tsx'
@@ -43,11 +43,9 @@ export function SVGAnimate() {
     <Page title="SVG animation" className="svg-animate">
       <div className="mb-2">
         <H3>Options</H3>
-        <div className="mx-auto w-fit">
-          <CodeSample language="jsx">
-            {'variants: ' + JSON.stringify(drawVariants, null, 2)}
-          </CodeSample>
-        </div>
+        <CenteredCodeSample language="jsx">
+          {'variants: ' + JSON.stringify(drawVariants, null, 2)}
+        </CenteredCodeSample>
         <div className="mx-auto grid w-fit grid-cols-2">
           <PathRangeInput
             id="path-length"

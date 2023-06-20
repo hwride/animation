@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 import { BorderButton } from '../components/Button.tsx'
-import { CodeSample } from '../components/CodeSample.tsx'
+import { CenteredCodeSample } from '../components/CodeSample.tsx'
 import { Link } from '../components/Link.tsx'
 import { Page } from '../components/Page.tsx'
 import { PageParagraph } from '../components/PageParagraph.tsx'
@@ -42,9 +42,9 @@ export function VariantsBasic() {
         these names.
       </PageParagraph>
 
-      <div className="mx-auto mb-4 block w-fit">
-        <CodeSample language="jsx">{codeStr}</CodeSample>
-      </div>
+      <CenteredCodeSample className="mb-4" language="jsx">
+        {codeStr}
+      </CenteredCodeSample>
 
       <BorderButton className="mx-auto mt-2 block" onClick={rerender}>
         Re-mount component

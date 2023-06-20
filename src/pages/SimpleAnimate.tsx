@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion'
 import { useState } from 'react'
 import { BorderButton } from '../components/Button.tsx'
-import { CodeSample } from '../components/CodeSample.tsx'
+import { CenteredCodeSample, CodeSample } from '../components/CodeSample.tsx'
 import { H3 } from '../components/Headings.tsx'
 import { Page } from '../components/Page.tsx'
 import { useRerender } from '../utils/useRerender.ts'
@@ -60,13 +60,11 @@ function ColourAnimation() {
   return (
     <>
       <H3>Colour</H3>
-      <div className="mx-auto w-fit">
-        <CodeSample language="jsx">
-          {`<motion.div 
+      <CenteredCodeSample language="jsx">
+        {`<motion.div 
   initial={{ backgroundColor: ${initialColourVal} }}
   animate={{ backgroundColor: ${animateColourVal} }} />`}
-        </CodeSample>
-      </div>
+      </CenteredCodeSample>
       <BorderButton className="mx-auto my-2 block" onClick={rerender}>
         Re-mount component
       </BorderButton>

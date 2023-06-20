@@ -10,8 +10,16 @@ SyntaxHighlighter.registerLanguage('jsx', jsx)
 export function CodeSample({ children, ...overrides }: SyntaxHighlighterProps) {
   // wrapLongLines helps with mobile view.
   return (
-    <SyntaxHighlighter style={prism} wrapLongLines={true} {...overrides}>
+    <SyntaxHighlighter style={prism} {...overrides}>
       {children}
     </SyntaxHighlighter>
+  )
+}
+
+export function CenteredCodeSample(props: SyntaxHighlighterProps) {
+  return (
+    <div className="m-auto w-fit max-w-full">
+      <CodeSample {...props} />
+    </div>
   )
 }

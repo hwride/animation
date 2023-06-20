@@ -4,7 +4,7 @@ import { BorderButton } from '../components/Button.tsx'
 import { Link } from '../components/Link.tsx'
 import { Page } from '../components/Page.tsx'
 import { PageParagraph } from '../components/PageParagraph.tsx'
-import { CodeSample } from '../components/CodeSample.tsx'
+import { CenteredCodeSample } from '../components/CodeSample.tsx'
 
 const parentVariants = {
   start: { backgroundColor: '#60a5fa' },
@@ -45,9 +45,8 @@ export function VariantsPropagation() {
         should happen at the same time.
       </PageParagraph>
 
-      <div className="mx-auto w-fit">
-        <CodeSample language="jsx">
-          {`const parentVariants = {
+      <CenteredCodeSample language="jsx">
+        {`const parentVariants = {
   start: { backgroundColor: '#60a5fa' },
   end: { backgroundColor: '#f87171' },
 }
@@ -72,8 +71,7 @@ const grandChildVariants = {
   <motion.div variants={childVariants} />
   <motion.div variants={childVariants} />
 </motion.div>`}
-        </CodeSample>
-      </div>
+      </CenteredCodeSample>
 
       <div className="m-auto mb-4 mt-2 w-min" key={key}>
         <BorderButton

@@ -5,7 +5,7 @@ import { Page } from '../components/Page.tsx'
 import { PageParagraph } from '../components/PageParagraph.tsx'
 import { H3 } from '../components/Headings.tsx'
 import { TextInput } from '../components/TextInput.tsx'
-import { CodeSample } from '../components/CodeSample.tsx'
+import { CenteredCodeSample } from '../components/CodeSample.tsx'
 
 export function ListAddRemove() {
   const [i, setI] = useState(4)
@@ -126,9 +126,8 @@ export function ListAddRemove() {
         </ul>
       </div>
 
-      <div className="m-auto w-fit">
-        <CodeSample language="jsx">
-          {`<ul>
+      <CenteredCodeSample language="jsx">
+        {`<ul>
   <AnimatePresence initial={false}>
     {listItems.map((li) => (
       <motion.li
@@ -151,8 +150,7 @@ export function ListAddRemove() {
     ))}
   </AnimatePresence>
 </ul>`}
-        </CodeSample>
-      </div>
+      </CenteredCodeSample>
     </Page>
   )
 }

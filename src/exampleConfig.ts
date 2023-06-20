@@ -1,12 +1,12 @@
-import { EnterExit } from './pages/EnterExit.tsx'
-import { Keyframes } from './pages/Keyframes.tsx'
-import { ListAddRemove } from './pages/ListAddRemove.tsx'
-import { SVGAnimate } from './pages/SVGAnimate.tsx'
-import { SimpleAnimate } from './pages/SimpleAnimate.tsx'
-import { TriggerAnimation } from './pages/TriggerAnimation.tsx'
-import { VariantsBasic } from './pages/VariantsBasic.tsx'
-import { VariantsOrchestration } from './pages/VariantsOrchestration.tsx'
-import { VariantsPropagation } from './pages/VariantsPropagation.tsx'
+import { EnterExit } from './examples/EnterExit.tsx'
+import { Keyframes } from './examples/Keyframes.tsx'
+import { ListAddRemove } from './examples/ListAddRemove.tsx'
+import { SVGAnimate } from './examples/SVGAnimate.tsx'
+import { SimpleAnimate } from './examples/SimpleAnimate.tsx'
+import { TriggerAnimation } from './examples/TriggerAnimation.tsx'
+import { VariantsBasic } from './examples/VariantsBasic.tsx'
+import { VariantsOrchestration } from './examples/VariantsOrchestration.tsx'
+import { VariantsPropagation } from './examples/VariantsPropagation.tsx'
 
 export type ConfigEntry = { id: string; label: string; Component: React.FC }
 export const componentConfig: ConfigEntry[] = [

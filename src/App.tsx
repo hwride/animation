@@ -4,7 +4,7 @@ import { MobileHeader } from './components/MobileHeader.tsx'
 import { DesktopMenu, useResponsiveMenu } from './components/menu/Menu.tsx'
 import { MenuProvider } from './components/menu/MenuContext.tsx'
 import { ConfigEntry } from './exampleConfig.ts'
-import { EmptyExample } from './pages/EmptyExample.tsx'
+import { EmptyExample } from './examples/EmptyExample.tsx'
 import {
   getExampleFromQueryParams,
   useExampleQueryParams,

@@ -21,8 +21,8 @@ export function Gestures() {
 
       <CenteredCodeSample language="jsx">
         {`<motion.button
-  // Hover triggers when you hover over an element.
   whileHover={{ scale: 1.5 }}
+  whileFocus={{ scale: 1.5 }}
   // Tap triggers when you click/tap on an element.
   whileTap={{ scale: 0.9 }}
   transition={{ 
@@ -38,12 +38,9 @@ export function Gestures() {
       <div className="mx-auto mt-16 w-fit">
         <motion.button
           className="rounded-2xl border border-gray-200 px-4 py-2"
-          whileHover={{
-            scale: 1.5,
-          }}
-          whileTap={{
-            scale: 0.9,
-          }}
+          whileHover={{ scale: 1.5 }}
+          whileFocus={{ scale: 1.5 }}
+          whileTap={{ scale: 0.9 }}
           transition={{ type: 'spring', stiffness: 400, damping: 17 }}
         >
           Click me!

@@ -1,9 +1,8 @@
-import { clsx } from 'clsx'
 import { useState } from 'react'
 import './App.css'
-import { Page } from './components/Page.tsx'
+import { EmptyExample } from './components/EmptyExample.tsx'
+import { MobileHeader } from './components/MobileHeader.tsx'
 import { DesktopMenu, useResponsiveMenu } from './components/menu/Menu.tsx'
-import { MenuButton } from './components/menu/MenuButton.tsx'
 import { MenuProvider } from './components/menu/MenuContext.tsx'
 import { ConfigEntry } from './exampleConfig.ts'
 import {
@@ -24,8 +23,7 @@ function App() {
   const [selectedExample, setSelectedExample] = useState<
     ConfigEntry | undefined
   >(getExampleFromQueryParams)
-  const ComponentToRender: React.FC =
-    selectedExample?.Component ?? EmptyComponent
+  const ComponentToRender: React.FC = selectedExample?.Component ?? EmptyExample
 
   // Menu
   const { menuIsCloseable, setMenuVisible } = useResponsiveMenu()
@@ -54,39 +52,6 @@ function App() {
         <ComponentToRender />
       </div>
     </div>
-  )
-}
-
-function MobileHeader({
-  selectedExampleId,
-  onMenuItemClick,
-}: {
-  selectedExampleId?: string
-  onMenuItemClick: (entry?: ConfigEntry) => void
-}) {
-  return (
-    <div
-      className={clsx(
-        // Stops the rotating menu button causing scrollbars.
-        'overflow-hidden',
-        'border-b border-gray-200 p-1 sm:hidden'
-      )}
-    >
-      <MenuButton
-        selectedExampleId={selectedExampleId}
-        onMenuItemClick={onMenuItemClick}
-      />
-    </div>
-  )
-}
-
-function EmptyComponent() {
-  return (
-    <Page className="h-full">
-      <div className="flex h-full items-center justify-center">
-        Choose an example
-      </div>
-    </Page>
   )
 }
 

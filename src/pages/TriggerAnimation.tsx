@@ -1,9 +1,9 @@
 import { motion } from 'framer-motion'
 import { useState } from 'react'
 import { BorderButton } from '../components/Button.tsx'
+import { CodeSample } from '../components/CodeSample.tsx'
 import { Page } from '../components/Page.tsx'
 import { PageParagraph } from '../components/PageParagraph.tsx'
-import { CodeSample } from '../components/CodeSample.tsx'
 
 export function TriggerAnimation() {
   const [animate, setAnimate] = useState<boolean>(false)

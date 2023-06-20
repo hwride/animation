@@ -1,11 +1,11 @@
-import './App.css'
+import { clsx } from 'clsx'
 import { useEffect, useState } from 'react'
-import { componentConfig, ConfigEntry } from './exampleConfig.ts'
-import { MenuProvider } from './components/menu/MenuContext.tsx'
+import './App.css'
 import { Page } from './components/Page.tsx'
 import { DesktopMenu, useResponsiveMenu } from './components/menu/Menu.tsx'
 import { MenuButton } from './components/menu/MenuButton.tsx'
-import { clsx } from 'clsx'
+import { MenuProvider } from './components/menu/MenuContext.tsx'
+import { ConfigEntry, componentConfig } from './exampleConfig.ts'
 
 function getEgFromQueryParams() {
   const urlParams = new URLSearchParams(window.location.search)

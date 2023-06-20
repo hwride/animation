@@ -1,10 +1,10 @@
 import { motion } from 'framer-motion'
-import './SVGAnimate.css'
 import { ReactNode, useState } from 'react'
-import { TextInput } from '../components/TextInput.tsx'
+import { CodeSample } from '../components/CodeSample.tsx'
 import { H2, H3 } from '../components/Headings.tsx'
 import { Page } from '../components/Page.tsx'
-import { CodeSample } from '../components/CodeSample.tsx'
+import { TextInput } from '../components/TextInput.tsx'
+import './SVGAnimate.css'
 
 function getVariants(opts: {
   pathLength: number

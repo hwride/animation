@@ -1,11 +1,11 @@
 import { AnimatePresence, motion } from 'framer-motion'
 import { InputHTMLAttributes, ReactNode, useState } from 'react'
 import { BorderButton } from '../components/Button.tsx'
+import { CenteredCodeSample } from '../components/CodeSample.tsx'
+import { H3 } from '../components/Headings.tsx'
 import { Page } from '../components/Page.tsx'
 import { PageParagraph } from '../components/PageParagraph.tsx'
-import { H3 } from '../components/Headings.tsx'
 import { TextInput } from '../components/TextInput.tsx'
-import { CenteredCodeSample } from '../components/CodeSample.tsx'
 
 export function ListAddRemove() {
   const [i, setI] = useState(4)

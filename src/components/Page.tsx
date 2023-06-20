@@ -1,6 +1,6 @@
+import { clsx } from 'clsx'
 import { ReactNode } from 'react'
 import { H2 } from './Headings.tsx'
-import { clsx } from 'clsx'
 
 export function Page({
   title,

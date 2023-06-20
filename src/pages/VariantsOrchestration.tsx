@@ -1,13 +1,13 @@
 import { motion } from 'framer-motion'
 import { useState } from 'react'
 import { BorderButton } from '../components/Button.tsx'
+import { CodeSample } from '../components/CodeSample.tsx'
+import { H3 } from '../components/Headings.tsx'
 import { Link } from '../components/Link.tsx'
 import { Page } from '../components/Page.tsx'
 import { PageParagraph } from '../components/PageParagraph.tsx'
-import { CodeSample } from '../components/CodeSample.tsx'
-import { useRerender } from '../utils/useRerender.ts'
-import { H3 } from '../components/Headings.tsx'
 import { TextInput } from '../components/TextInput.tsx'
+import { useRerender } from '../utils/useRerender.ts'
 
 const getParentVariants = (when: string, staggerChildren: number) => ({
   start: {

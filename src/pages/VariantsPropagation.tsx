@@ -1,10 +1,10 @@
 import { motion } from 'framer-motion'
 import { useState } from 'react'
 import { BorderButton } from '../components/Button.tsx'
+import { CenteredCodeSample } from '../components/CodeSample.tsx'
 import { Link } from '../components/Link.tsx'
 import { Page } from '../components/Page.tsx'
 import { PageParagraph } from '../components/PageParagraph.tsx'
-import { CenteredCodeSample } from '../components/CodeSample.tsx'
 
 const parentVariants = {
   start: { backgroundColor: '#60a5fa' },

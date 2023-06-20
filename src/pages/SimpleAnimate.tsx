@@ -1,10 +1,10 @@
 import { motion } from 'framer-motion'
 import { useState } from 'react'
+import { BorderButton } from '../components/Button.tsx'
+import { CodeSample } from '../components/CodeSample.tsx'
 import { H3 } from '../components/Headings.tsx'
 import { Page } from '../components/Page.tsx'
-import { CodeSample } from '../components/CodeSample.tsx'
 import { useRerender } from '../utils/useRerender.ts'
-import { BorderButton } from '../components/Button.tsx'
 
 export function SimpleAnimate() {
   return (

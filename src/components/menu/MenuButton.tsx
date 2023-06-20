@@ -1,9 +1,9 @@
 import { clsx } from 'clsx'
+import { ConfigEntry } from '../../exampleConfig.ts'
+import { colours } from '../../utils/tailwind.ts'
+import { MotionIconButton } from '../IconButton.tsx'
 import { DialogMenu, MenuIcon } from './Menu.tsx'
 import { useMenu } from './MenuContext.tsx'
-import { ConfigEntry } from '../../exampleConfig.ts'
-import { MotionIconButton } from '../IconButton.tsx'
-import { colours } from '../../utils/tailwind.ts'
 
 export function MenuButton({
   onMenuItemClick,

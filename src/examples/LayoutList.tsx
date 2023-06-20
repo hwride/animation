@@ -65,6 +65,7 @@ ${listItemIds
               transition={{
                 type: transitionType,
                 bounce: 0.3,
+                duration: transitionType === 'tween' ? 0.5 : 1,
               }}
             >
               List item {num}

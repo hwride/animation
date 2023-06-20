@@ -1,6 +1,6 @@
 import { clsx } from 'clsx'
-import { motion } from 'framer-motion'
-import { ButtonHTMLAttributes, ReactNode } from 'react'
+import { HTMLMotionProps, motion } from 'framer-motion'
+import { ReactNode } from 'react'
 import { Menu as MenuIcon } from 'react-feather'
 import { ConfigEntry, componentConfig } from '../../exampleConfig.ts'
 import { Button } from '../Button.tsx'
@@ -62,7 +62,7 @@ function ListButton({
   children,
   className,
   ...rest
-}: ButtonHTMLAttributes<HTMLButtonElement> & { children: ReactNode }) {
+}: HTMLMotionProps<'button'> & { children: ReactNode }) {
   return (
     <Button className={className} {...rest}>
       {children}

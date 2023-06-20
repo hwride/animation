@@ -4,6 +4,7 @@ import { GesturesDrag } from './examples/GesturesDrag.tsx'
 import { GesturesPropagation } from './examples/GesturesPropagation.tsx'
 import { Keyframes } from './examples/Keyframes.tsx'
 import { Layout } from './examples/Layout.tsx'
+import { LayoutList } from './examples/LayoutList.tsx'
 import { ListAddRemove } from './examples/ListAddRemove.tsx'
 import { SVGAnimate } from './examples/SVGAnimate.tsx'
 import { SimpleAnimate } from './examples/SimpleAnimate.tsx'
@@ -68,6 +69,11 @@ export const componentConfig: ConfigEntry[] = [
     id: 'layout',
     label: 'Layout',
     Component: Layout,
+  },
+  {
+    id: 'layout_list',
+    label: 'Layout list',
+    Component: LayoutList,
   },
   {
     id: 'list_add_remove',

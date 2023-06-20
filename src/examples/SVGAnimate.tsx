@@ -44,7 +44,7 @@ export function SVGAnimate() {
     <Page title="SVG animation" className="svg-animate">
       <div className="mb-2">
         <H3>Options</H3>
-        <CenteredCodeSample language="jsx" className="min-w-[240px]">
+        <CenteredCodeSample language="jsx" className="min-w-[250px]">
           {'variants: ' + JSON.stringify(drawVariants, null, 2)}
         </CenteredCodeSample>
         <ControlGrid>

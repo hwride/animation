@@ -30,7 +30,7 @@ export function Layout() {
       </PageParagraph>
 
       {/* min-width to stop code sample size changing when options change. */}
-      <CenteredCodeSample language="jsx" className="min-w-[310px]">
+      <CenteredCodeSample language="jsx" className="min-w-[320px]">
         {`<div
   style={{ 
     display: 'flex';

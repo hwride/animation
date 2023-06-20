@@ -1,6 +1,6 @@
 import { clsx } from 'clsx'
 import { ConfigEntry } from '../exampleConfig.ts'
-import { MenuButton } from './menu/MenuButton.tsx'
+import { MobileMenuButton } from './menu/MobileMenuButton.tsx'
 
 export function MobileHeader({
   selectedExampleId,
@@ -17,7 +17,7 @@ export function MobileHeader({
         'border-b border-gray-200 p-1 sm:hidden'
       )}
     >
-      <MenuButton
+      <MobileMenuButton
         selectedExampleId={selectedExampleId}
         onMenuItemClick={onMenuItemClick}
       />

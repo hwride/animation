@@ -2,20 +2,21 @@ import { clsx } from 'clsx'
 import { ConfigEntry } from '../../exampleConfig.ts'
 import { colours } from '../../utils/tailwind.ts'
 import { MotionIconButton } from '../IconButton.tsx'
-import { DialogMenu, MenuIcon } from './Menu.tsx'
-import { useMenu } from './MenuContext.tsx'
+import { MenuIcon } from './MenuContent.tsx'
+import { MobileMenu } from './MobileMenu.tsx'
+import { useMobileMenu } from './MobileMenuContext.tsx'
 
-export function MenuButton({
+export function MobileMenuButton({
   onMenuItemClick,
   selectedExampleId,
 }: {
   onMenuItemClick: (entry?: ConfigEntry) => void
   selectedExampleId?: string
 }) {
-  const { menuVisible, setMenuVisible } = useMenu()
+  const { menuVisible, setMenuVisible } = useMobileMenu()
 
   return (
-    <DialogMenu
+    <MobileMenu
       onMenuItemClick={onMenuItemClick}
       selectedExampleId={selectedExampleId}
       openButton={

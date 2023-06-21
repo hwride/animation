@@ -6,7 +6,7 @@ import { Keyframes } from './examples/Keyframes.tsx'
 import { Layout } from './examples/Layout.tsx'
 import { LayoutList } from './examples/LayoutList.tsx'
 import { LayoutShared } from './examples/LayoutShared.tsx'
-import { LayoutShared2 } from './examples/LayoutShared2.tsx'
+import { LayoutSharedModal } from './examples/LayoutSharedModal.tsx'
 import { ListAddRemove } from './examples/ListAddRemove.tsx'
 import { SVGAnimate } from './examples/SVGAnimate.tsx'
 import { SimpleAnimate } from './examples/SimpleAnimate.tsx'
@@ -83,9 +83,9 @@ export const componentConfig: ConfigEntry[] = [
     Component: LayoutShared,
   },
   {
-    id: 'layout_shared_2',
-    label: 'Layout shared 2',
-    Component: LayoutShared2,
+    id: 'layout_shared_modal',
+    label: 'Layout shared modal',
+    Component: LayoutSharedModal,
   },
   {
     id: 'list_add_remove',

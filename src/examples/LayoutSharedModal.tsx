@@ -4,7 +4,7 @@ import { useState } from 'react'
 import { X as CloseIcon } from 'react-feather'
 import { CenteredCodeSample } from '../components/CodeSample.tsx'
 import { ControlGrid } from '../components/ControlGrid.tsx'
-import { LabelledSelect } from '../components/LabelledSelect.tsx'
+import { BoolLabelledSelect } from '../components/LabelledSelect.tsx'
 import { Link } from '../components/Link.tsx'
 import { Page } from '../components/Page.tsx'
 import { PageParagraph } from '../components/PageParagraph.tsx'
@@ -66,16 +66,13 @@ export function LayoutSharedModal() {
 )}`}</CenteredCodeSample>
 
       <ControlGrid>
-        <LabelledSelect
+        <BoolLabelledSelect
           id="hideWhenAnimating"
           label="Hide content when animating"
           selectClassName="font-mono"
-          value={String(hideContentWhenAnimating)}
-          onOptionChange={(val) => setHideContentWhenAnimating(val === 'true')}
-        >
-          <option value="true">true</option>
-          <option value="false">false</option>
-        </LabelledSelect>
+          value={hideContentWhenAnimating}
+          onOptionChange={setHideContentWhenAnimating}
+        />
       </ControlGrid>
 
       <div className="relative mx-auto mt-4 min-h-[200px] w-fit">

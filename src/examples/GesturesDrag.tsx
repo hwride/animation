@@ -4,7 +4,10 @@ import { CodeSample } from '../components/CodeSample.tsx'
 import { ControlGrid } from '../components/ControlGrid.tsx'
 import { H3 } from '../components/Headings.tsx'
 import { LabelledNumberInput } from '../components/LabelledNumberInput.tsx'
-import { LabelledSelect } from '../components/LabelledSelect.tsx'
+import {
+  BoolLabelledSelect,
+  LabelledSelect,
+} from '../components/LabelledSelect.tsx'
 import { Link } from '../components/Link.tsx'
 import { Page } from '../components/Page.tsx'
 import { PageParagraph } from '../components/PageParagraph.tsx'
@@ -94,7 +97,7 @@ export function GesturesDrag() {
           />
         ))}
 
-        <LabelledSelect
+        <BoolLabelledSelect
           id="dragSnapToOrigin"
           label={
             <Link
@@ -105,12 +108,9 @@ export function GesturesDrag() {
             </Link>
           }
           selectClassName="font-mono"
-          value={String(dragSnapToOrigin)}
-          onOptionChange={(value) => setDragSnapToOrigin(value === 'true')}
-        >
-          <option value="false">false</option>
-          <option value="true">true</option>
-        </LabelledSelect>
+          value={dragSnapToOrigin}
+          onOptionChange={setDragSnapToOrigin}
+        />
 
         <LabelledNumberInput
           id="dragElastic"
@@ -129,7 +129,7 @@ export function GesturesDrag() {
           onNumChange={(val) => setDragElastic(val)}
         />
 
-        <LabelledSelect
+        <BoolLabelledSelect
           id="dragMomentum"
           label={
             <Link
@@ -140,12 +140,9 @@ export function GesturesDrag() {
             </Link>
           }
           selectClassName="font-mono"
-          value={String(dragMomentum)}
-          onOptionChange={(value) => setDragMomentum(value === 'true')}
-        >
-          <option value="false">false</option>
-          <option value="true">true</option>
-        </LabelledSelect>
+          value={dragMomentum}
+          onOptionChange={setDragMomentum}
+        />
       </ControlGrid>
 
       <motion.div

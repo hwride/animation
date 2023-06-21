@@ -1,6 +1,13 @@
 import { clsx } from 'clsx'
 import { ReactNode, SelectHTMLAttributes } from 'react'
 
+type LabelledSelectProps = SelectHTMLAttributes<HTMLSelectElement> & {
+  label: ReactNode
+  value: string
+  onOptionChange: (value: string) => void
+  selectClassName?: string
+}
+
 export function LabelledSelect({
   id,
   label,
@@ -8,12 +15,7 @@ export function LabelledSelect({
   children,
   onOptionChange,
   selectClassName,
-}: SelectHTMLAttributes<HTMLSelectElement> & {
-  label: ReactNode
-  value: string
-  onOptionChange: (value: string) => void
-  selectClassName?: string
-}) {
+}: LabelledSelectProps) {
   return (
     <>
       <label htmlFor={id}>{label}</label>
@@ -26,5 +28,25 @@ export function LabelledSelect({
         {children}
       </select>
     </>
+  )
+}
+
+export function BoolLabelledSelect({
+  value,
+  onOptionChange,
+  ...rest
+}: Omit<LabelledSelectProps, 'value' | 'onOptionChange' | 'children'> & {
+  value: boolean
+  onOptionChange: (value: boolean) => void
+}) {
+  return (
+    <LabelledSelect
+      {...rest}
+      value={String(value)}
+      onOptionChange={(val) => onOptionChange(val === 'true')}
+    >
+      <option value="true">true</option>
+      <option value="false">false</option>
+    </LabelledSelect>
   )
 }

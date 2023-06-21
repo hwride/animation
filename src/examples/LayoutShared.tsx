@@ -1,16 +1,23 @@
+import { clsx } from 'clsx'
 import { motion } from 'framer-motion'
 import { useState } from 'react'
 import { X as CloseIcon } from 'react-feather'
 import { CenteredCodeSample } from '../components/CodeSample.tsx'
+import { ControlGrid } from '../components/ControlGrid.tsx'
+import { LabelledSelect } from '../components/LabelledSelect.tsx'
 import { Link } from '../components/Link.tsx'
 import { Page } from '../components/Page.tsx'
 import { PageParagraph } from '../components/PageParagraph.tsx'
 
 export function LayoutShared() {
   const [modalOpen, setModalOpen] = useState(false)
+  const [hideContentWhenAnimating, setHideContentWhenAnimating] =
+    useState(false)
+  const [modalAnimating, setModalAnimating] = useState(false)
+  const [cardAnimating, setCardAnimating] = useState(false)
 
   return (
-    <Page title="Layout shared" className="relative">
+    <Page title="Layout shared" className="relative h-full overflow-y-scroll">
       <PageParagraph>
         You can use{' '}
         <Link
@@ -36,7 +43,10 @@ export function LayoutShared() {
         >
           troubleshooting
         </Link>{' '}
-        section for tips.
+        section for tips. One way around this is to hide the content while
+        animation happens. Be careful about removing the elements or using{' '}
+        <code>display: none</code> to achieve this though, as this seems to mess
+        up Framer Motion.
       </PageParagraph>
 
       <CenteredCodeSample language="jsx">{`{!modalOpen && <motion.article
@@ -56,7 +66,20 @@ export function LayoutShared() {
   </motion.div>
 )}`}</CenteredCodeSample>
 
-      <div className="relative mx-auto mt-4 w-fit">
+      <ControlGrid>
+        <LabelledSelect
+          id="hideWhenAnimating"
+          label="Hide content when animating"
+          selectClassName="font-mono"
+          value={String(hideContentWhenAnimating)}
+          onOptionChange={(val) => setHideContentWhenAnimating(val === 'true')}
+        >
+          <option value="true">true</option>
+          <option value="false">false</option>
+        </LabelledSelect>
+      </ControlGrid>
+
+      <div className="relative mx-auto mt-4 min-h-[200px] w-fit">
         {/* Included the removal of the card as it looks better, otherwise
             the cross-fade looks a bit strange. */}
         {!modalOpen && (
@@ -64,18 +87,32 @@ export function LayoutShared() {
             layoutId="modal"
             className="h-[200px] rounded-lg border border-gray-400 bg-white p-6"
             onClick={() => setModalOpen(true)}
+            onLayoutAnimationStart={() => setCardAnimating(true)}
+            onLayoutAnimationComplete={() => setCardAnimating(false)}
           >
-            <h2 className="font-bold">Card title</h2>
-            <p>Click for more info...</p>
+            <div
+              className={clsx({
+                invisible: hideContentWhenAnimating && cardAnimating,
+              })}
+            >
+              <h2 className="font-bold">Card title</h2>
+              <p>Click for more info...</p>
+            </div>
           </motion.article>
         )}
-        {/*<AnimatePresence>*/}
+
         {modalOpen && (
           <motion.div
             layoutId="modal"
             className="absolute left-[-250px] top-[-250px] h-[300px] w-[500px] rounded-lg border border-gray-400 bg-white"
+            onLayoutAnimationStart={() => setModalAnimating(true)}
+            onLayoutAnimationComplete={() => setModalAnimating(false)}
           >
-            <div className="spac-b flex justify-between p-4">
+            <div
+              className={clsx('spac-b flex justify-between p-4', {
+                invisible: hideContentWhenAnimating && modalAnimating,
+              })}
+            >
               <h2 className="font-bold">Card title</h2>
               <button onClick={() => setModalOpen(false)}>
                 <CloseIcon />
@@ -83,7 +120,6 @@ export function LayoutShared() {
             </div>
           </motion.div>
         )}
-        {/*</AnimatePresence>*/}
       </div>
     </Page>
   )

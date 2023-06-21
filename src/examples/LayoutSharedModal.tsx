@@ -73,13 +73,13 @@ export function LayoutSharedModal() {
 
       <ControlGrid>{hideContentWhenAnimatingJsx}</ControlGrid>
 
-      <div className="relative mx-auto mt-4 min-h-[200px] w-fit">
+      <div className="relative mx-auto mt-4 min-h-[200px]">
         {/* Included the removal of the card as it looks better, otherwise
             the cross-fade looks a bit strange. */}
         {!modalOpen && (
           <motion.article
             layoutId="modal"
-            className="h-[200px] rounded-lg border border-gray-400 bg-white p-6"
+            className="mx-auto h-[200px] w-fit rounded-lg border border-gray-400 bg-white p-6"
             onClick={() => setModalOpen(true)}
             onLayoutAnimationStart={() => setCardAnimating(true)}
             onLayoutAnimationComplete={() => setCardAnimating(false)}
@@ -98,7 +98,7 @@ export function LayoutSharedModal() {
         {modalOpen && (
           <motion.div
             layoutId="modal"
-            className="absolute left-[-250px] top-[-250px] h-[300px] w-[500px] rounded-lg border border-gray-400 bg-white"
+            className="absolute left-0 right-0 top-[-250px] mx-auto h-[300px] w-[500px] max-w-full rounded-lg border border-gray-400 bg-white"
             onLayoutAnimationStart={() => setModalAnimating(true)}
             onLayoutAnimationComplete={() => setModalAnimating(false)}
           >

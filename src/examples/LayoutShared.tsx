@@ -29,7 +29,14 @@ export function LayoutShared() {
       </PageParagraph>
       <PageParagraph>
         Also notice distortion such as stretching text can occur which might not
-        be desirable.
+        be desirable. See the{' '}
+        <Link
+          href="https://www.framer.com/motion/layout-animations/#troubleshooting"
+          target="_blank"
+        >
+          troubleshooting
+        </Link>{' '}
+        section for tips.
       </PageParagraph>
 
       <CenteredCodeSample language="jsx">{`{!modalOpen && <motion.article

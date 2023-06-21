@@ -79,6 +79,7 @@ export function LayoutSharedModal() {
         {!modalOpen && (
           <motion.article
             layoutId="modal"
+            transition={{ duration: 0.7, type: 'spring' }}
             className="mx-auto h-[200px] w-fit rounded-lg border border-gray-400 bg-white p-6"
             onClick={() => setModalOpen(true)}
             onLayoutAnimationStart={() => setCardAnimating(true)}

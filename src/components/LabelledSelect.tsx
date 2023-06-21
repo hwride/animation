@@ -1,5 +1,5 @@
 import { clsx } from 'clsx'
-import { ReactNode, SelectHTMLAttributes } from 'react'
+import { ReactNode, SelectHTMLAttributes, useState } from 'react'
 
 type LabelledSelectProps = SelectHTMLAttributes<HTMLSelectElement> & {
   label: ReactNode
@@ -31,14 +31,18 @@ export function LabelledSelect({
   )
 }
 
+type BoolLabelledSelectProps = Omit<
+  LabelledSelectProps,
+  'value' | 'onOptionChange' | 'children'
+> & {
+  value: boolean
+  onOptionChange: (value: boolean) => void
+}
 export function BoolLabelledSelect({
   value,
   onOptionChange,
   ...rest
-}: Omit<LabelledSelectProps, 'value' | 'onOptionChange' | 'children'> & {
-  value: boolean
-  onOptionChange: (value: boolean) => void
-}) {
+}: BoolLabelledSelectProps) {
   return (
     <LabelledSelect
       {...rest}
@@ -49,4 +53,27 @@ export function BoolLabelledSelect({
       <option value="false">false</option>
     </LabelledSelect>
   )
+}
+
+/**
+ * Helper to manage the boolean state for a BoolLabelledSelect. Basically means
+ * you don't need to declare the state yourself and hook up the setters. Not
+ * sure if this is overkill, but leaving in as an experiment.
+ */
+export function useBoolLabelledSelect(
+  props: Omit<BoolLabelledSelectProps, 'value' | 'onOptionChange'> & {
+    initialValue: boolean
+  }
+): [
+  JSX.Element,
+  boolean,
+  (value: ((prevState: boolean) => boolean) | boolean) => void
+] {
+  const [bool, setBool] = useState(props.initialValue ?? false)
+
+  return [
+    <BoolLabelledSelect {...props} value={bool} onOptionChange={setBool} />,
+    bool,
+    setBool,
+  ]
 }

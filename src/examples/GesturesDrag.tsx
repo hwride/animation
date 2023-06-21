@@ -5,8 +5,8 @@ import { ControlGrid } from '../components/ControlGrid.tsx'
 import { H3 } from '../components/Headings.tsx'
 import { LabelledNumberInput } from '../components/LabelledNumberInput.tsx'
 import {
-  BoolLabelledSelect,
   LabelledSelect,
+  useBoolLabelledSelect,
 } from '../components/LabelledSelect.tsx'
 import { Link } from '../components/Link.tsx'
 import { Page } from '../components/Page.tsx'
@@ -18,9 +18,31 @@ export function GesturesDrag() {
   const [dragConstraintBottom, setDragConstraintBottom] = useState(100)
   const [dragConstraintLeft, setDragConstraintLeft] = useState(-100)
   const [dragConstraintRight, setDragConstraintRight] = useState(100)
-  const [dragSnapToOrigin, setDragSnapToOrigin] = useState(false)
+  const [dragSnapToOriginJsx, dragSnapToOrigin] = useBoolLabelledSelect({
+    id: 'dragSnapToOrigin',
+    label: (
+      <Link
+        href="https://www.framer.com/motion/gestures/###dragsnaptoorigin"
+        target="_blank"
+      >
+        <code>dragSnapToOrigin</code>
+      </Link>
+    ),
+    selectClassName: 'font-mono',
+  })
   const [dragElastic, setDragElastic] = useState(0.5)
-  const [dragMomentum, setDragMomentum] = useState(true)
+  const [dragMomentumJsx, dragMomentum] = useBoolLabelledSelect({
+    id: 'dragMomentum',
+    label: (
+      <Link
+        href="https://www.framer.com/motion/gestures/###dragmomentum"
+        target="_blank"
+      >
+        <code>dragMomentum</code>
+      </Link>
+    ),
+    selectClassName: 'font-mono',
+  })
 
   return (
     <Page title="Gestures drag">
@@ -97,20 +119,7 @@ export function GesturesDrag() {
           />
         ))}
 
-        <BoolLabelledSelect
-          id="dragSnapToOrigin"
-          label={
-            <Link
-              href="https://www.framer.com/motion/gestures/###dragsnaptoorigin"
-              target="_blank"
-            >
-              <code>dragSnapToOrigin</code>
-            </Link>
-          }
-          selectClassName="font-mono"
-          value={dragSnapToOrigin}
-          onOptionChange={setDragSnapToOrigin}
-        />
+        {dragSnapToOriginJsx}
 
         <LabelledNumberInput
           id="dragElastic"
@@ -129,20 +138,7 @@ export function GesturesDrag() {
           onNumChange={(val) => setDragElastic(val)}
         />
 
-        <BoolLabelledSelect
-          id="dragMomentum"
-          label={
-            <Link
-              href="https://www.framer.com/motion/gestures/###dragmomentum"
-              target="_blank"
-            >
-              <code>dragMomentum</code>
-            </Link>
-          }
-          selectClassName="font-mono"
-          value={dragMomentum}
-          onOptionChange={setDragMomentum}
-        />
+        {dragMomentumJsx}
       </ControlGrid>
 
       <motion.div

@@ -4,14 +4,20 @@ import { useState } from 'react'
 import { X as CloseIcon } from 'react-feather'
 import { CenteredCodeSample } from '../components/CodeSample.tsx'
 import { ControlGrid } from '../components/ControlGrid.tsx'
-import { BoolLabelledSelect } from '../components/LabelledSelect.tsx'
+import { useBoolLabelledSelect } from '../components/LabelledSelect.tsx'
 import { Link } from '../components/Link.tsx'
 import { Page } from '../components/Page.tsx'
 import { PageParagraph } from '../components/PageParagraph.tsx'
 
 export function LayoutSharedModal() {
   const [modalOpen, setModalOpen] = useState(false)
-  const [hideContentWhenAnimating, setHideContentWhenAnimating] = useState(true)
+  const [hideContentWhenAnimatingJsx, hideContentWhenAnimating] =
+    useBoolLabelledSelect({
+      id: 'hideContentWhenAnimating',
+      label: 'Hide content when animating',
+      initialValue: true,
+      selectClassName: 'font-mono',
+    })
   const [modalAnimating, setModalAnimating] = useState(false)
   const [cardAnimating, setCardAnimating] = useState(false)
 
@@ -65,15 +71,7 @@ export function LayoutSharedModal() {
   </motion.div>
 )}`}</CenteredCodeSample>
 
-      <ControlGrid>
-        <BoolLabelledSelect
-          id="hideWhenAnimating"
-          label="Hide content when animating"
-          selectClassName="font-mono"
-          value={hideContentWhenAnimating}
-          onOptionChange={setHideContentWhenAnimating}
-        />
-      </ControlGrid>
+      <ControlGrid>{hideContentWhenAnimatingJsx}</ControlGrid>
 
       <div className="relative mx-auto mt-4 min-h-[200px] w-fit">
         {/* Included the removal of the card as it looks better, otherwise

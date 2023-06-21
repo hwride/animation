@@ -62,7 +62,7 @@ export function BoolLabelledSelect({
  */
 export function useBoolLabelledSelect(
   props: Omit<BoolLabelledSelectProps, 'value' | 'onOptionChange'> & {
-    initialValue: boolean
+    initialValue?: boolean
   }
 ): [
   JSX.Element,

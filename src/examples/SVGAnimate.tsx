@@ -44,7 +44,9 @@ export function SVGAnimate() {
     <Page title="SVG animation" className="svg-animate">
       <div className="mb-2">
         <H3>Options</H3>
-        <CenteredCodeSample language="jsx" className="min-w-[250px]">
+        {/* Make sure you check the widest option with fractional text if you
+        adjust the min-width. iOS seemed to need a larger min width than desktop */}
+        <CenteredCodeSample language="jsx" className="min-w-[255px]">
           {'variants: ' + JSON.stringify(drawVariants, null, 2)}
         </CenteredCodeSample>
         <ControlGrid>

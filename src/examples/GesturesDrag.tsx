@@ -159,6 +159,8 @@ export function GesturesDrag() {
             // The code sample was interfering with the drag on mobile.
             // Fixed this by disabling pointer events on it.
             pointerEvents: 'none',
+            // Min width to stop shifting when options change.
+            minWidth: '270px',
           }}
           language="jsx"
         >{`<motion.div 
